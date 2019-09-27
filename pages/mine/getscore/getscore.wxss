@@ -1,0 +1,18 @@
+/* pages/mine/getscore/getscore.wxss */
+.datiimg{width: 50rpx;flex: 1}
+.datiimgson{width: 100rpx;height:100rpx; padding: 10rpx;background: #F09440;border-radius: 50%;}
+.questiontxt{display: flex;justify-content: flex-start;align-content: center; flex: 2;flex-direction: column;}
+.btn{flex: 1;font-size: 30rpx;}
+.toget{width: 70%;padding: 5rpx 0;background: #ffffff;color: #F2AC45;border-radius: 50rpx;
+  text-align: center;}
+.question{background: #F2AC45;color: white;padding: 20rpx 0;margin: 20rpx auto;width: 94%;
+  border-radius: 20rpx;}
+.questiontxt view:nth-child(1){font-size: 32rpx;font-weight: bold;}
+.questiontxt view:nth-child(2){font-size:28rpx;margin-top: 10rpx;}
+.did{color: #ffffff;text-align: center;}
+.study{background: #62C9AB}
+.studyson{background:#52B399}
+.togetstudy{color: #62C9AB}
+.photo{background: #56A9F4}
+.photoson{background:#479EF8}
+.togetphoto{color: #56A9F4}

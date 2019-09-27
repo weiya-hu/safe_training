@@ -1,0 +1,2 @@
+<!--pages/study/studydetail/studydetail.wxml-->
+<web-view src='{{pdfitem.address}}'></web-view>

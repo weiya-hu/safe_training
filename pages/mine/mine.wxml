@@ -1,0 +1,96 @@
+<!--pages/mine/mine.wxml-->
+<view class='mine' style='height:{{height}}px'>
+  <view class='minetop flexc'> 
+    <view class='userimg fleximg'>
+      <image mode='widthFix'  class="userinfo-avatar" src="{{userInfo.avatarUrl?userInfo.avatarUrl:'../../images/usertx.jpg'}}"></image>
+    </view>
+    <view class='name' wx:if='{{userinfotxt.realname}}'>{{userinfotxt.realname}}</view>
+    <view class='name fleximg' wx:else='{{userinfotxt.realname}}'>您还没有登录？去<view class="loginbtn" bindtap="loginshow">登录</view></view> 
+  </view>
+  <view class='score flex scores'>
+    <view class='flexl'>
+      <view class='scoreimg fleximg'>
+        <image mode='widthFix'  class="userinfo-avatar" src="../../images/score.png"></image>
+      </view>
+      <view class='scoretxt flexl'>
+        <view>积分:{{integral}}</view>
+      </view>
+    </view>
+    <view class='tix' bindtap='change'>兑换</view>
+    <view class='changesus' wx:if='{{exchangeshow}}'  catchtap='change'>
+      <view class='changesusitem'   catchtap='changee'>
+        <view class='phones flex'> <view>充值号码:{{phonenumber}}</view><view>积分:{{integral}}</view></view>
+        <view class='exchange'>
+          <view  class='exchangeitem flexc' wx:for='{{sus}}' wx:key='index'  bindtap='exchange' data-intitem='{{item}}'>
+            <view class='money fleximg'><view>{{item.money}}</view><view>元</view></view>
+            <view class='int'>售价 {{item.int}} 积分</view>
+          </view>
+        </view>
+        <view class='chaimg fleximg'   catchtap='change'>
+          <image mode='widthFix' src="../../images/cha5.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="down score">
+    <view class="flex jfitem border_bot" bindtap="toscoreDetail">
+      <view class="flexl">
+        <view class="jfimg fleximg"><image mode="widthFix" class="imgflex" src="../../images/jfmx.png"></image> </view>
+        <view class='jftxt'>积分明细</view>
+      </view>
+      <view class="nextimg fleximg"><image mode="widthFix" src="../../images/next.png"></image> </view>
+    </view>
+    <view class="flex jfitem border_bot" bindtap="toexchangeDetail">
+      <view class="flexl">
+        <view class="jfimg fleximg"><image mode="widthFix" class="imgflex" src="../../images/dhmx.png"></image> </view>
+        <view class='jftxt'>兑换明细</view>
+      </view>
+      <view class="nextimg fleximg"><image mode="widthFix" src="../../images/next.png"></image> </view>
+    </view>
+    <view class="flex jfitem" bindtap="togetscore">
+      <view class="flexl">
+        <view class="jfimg fleximg"><image mode="widthFix" class="imgflex" src="../../images/getjf.png"></image> </view>
+        <view class='jftxt'>获取积分</view>
+      </view>
+      <view class="nextimg fleximg"><image mode="widthFix" src="../../images/next.png"></image> </view>
+    </view>
+  </view>
+</view>
+<view class='login fleximg' wx:if='{{loginshow}}'>
+  <view wx:if="{{isHide}}" class='loginsus'>
+    <view class='loginone'>您还没有授权登录</view>
+    <view class='logintwo'>请登录后再进行操作</view>
+    <view class='loginthree'>登录后才能积累积分</view>
+    <view class='allowimg fleximg'>
+      <image mode='widthFix' bindtap="bindViewTap" class="userinfo-avatar" src="../../images/allow.jpg"></image>
+    </view> 
+    <view class="bottompre"> 
+      <button class='bottom bottom_picker' bindtap="loginshow" >暂不登录</button>
+      <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">立即登录</button>
+    </view>
+    
+  </view>
+  <view  wx:if="{{phoneshow}}" class='phone'>
+    <view class='getphone'>手机号登录</view>
+    <form bindsubmit="formSubmit">
+      <view class='flexl phoneson '>
+        <label class='fleximg phoneimg' for='username'>
+          <image src='../../images/phone.png' mode='widthFix'></image>
+        </label>
+        <input id='username' auto-focus='true' name="phone" class='phoneinp' type='number' placeholder='请输入您的手机号码'  placeholder-class='placeclass' maxlength='11' value='{{phone}}' bindinput="phonetap"></input>
+      </view>
+      <view class="flexl">
+        <view class='flexl phoneson phonesons'>
+          <input name="yzm" class='phoneinp' type='number' placeholder='请输入您收到的验证码'  placeholder-class='placeclass' maxlength='6'></input>
+        </view>
+        <view class="yzm" bindtap='getyzm'>{{yzm}}</view>
+      </view>
+      
+      <view class="flex">
+        <button bindtap="loginshow" class='sure'>取消</button>
+        <button loading='{{loading}}' hover-class='none' form-type='submit' class='sure'>确认</button>
+      </view>
+      
+    </form>
+  </view>
+</view>

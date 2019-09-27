@@ -1,0 +1,55 @@
+/**index.wxss**/
+.userimg{width: 200rpx;background: #EC635D;height: 200rpx;border-radius: 50%;box-shadow: 0 0 20rpx 5rpx rgba(0,0,0,0.2)}
+.userimgson{width: 175rpx;height: 175rpx;border-radius: 50%;overflow: hidden}
+.area view{padding: 4rpx 15rpx 6rpx;border-radius: 10rpx;background:#ffffff ;color: #EC635D;margin: 0 auto 30rpx;text-align: center;box-shadow: 0 0 20rpx 5rpx rgba(0,0,0,0.2)}
+.userimgpre{padding: 30rpx 0;}
+.usertxt{padding: 20rpx 50rpx;}
+.usertxt view{padding: 4rpx 15rpx 6rpx;border-radius: 28rpx;background: #EC635D;color: #f1f3f5;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+.dat{width: 30%;background: #fff;padding: 30rpx;border-radius: 10px;box-shadow: 0 0 20rpx 5rpx rgba(0,0,0,0.2);position: relative;}
+.content{display: flex;align-items: center;justify-content: space-around;margin-top: 80rpx;}
+.datimg{width: 80%;margin: 0 auto}
+.dattxt{display: block;color: #512C56;margin: 16rpx auto 0;text-align: center;font-weight: bold;font-size: 36rpx;letter-spacing: 1px}
+.study{background: #fff;}
+.login{background: rgba(0,0,0,0.4);width: 100%;height: 100%;position: fixed;top: 0;z-index: 4}
+.loginbt{padding: 10rpx 20rpx;background: #EC635D;color: #ffffff;font-size: 32rpx;font-weight: bold;text-align: center;display: inline-block;letter-spacing: 2px;border-radius: 4px;}
+.loginsus,.phone{width: 80%;position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);background: #ffffff;border-radius: 10px;padding-bottom: 40rpx;z-index: 9}
+.botimg{position: fixed;bottom: 0;left: 0;width: 100%}
+.bot{background: rgba(0,0,0,0.4);position: absolute;width: 100%;height:100%;}
+.loginone,.getphone{text-align: center;color: #666666;font-size: 36rpx;letter-spacing: 1px;height: 90rpx;line-height: 90rpx; border-bottom: 1rpx solid #ccc;}
+.logintwo{font-size: 32rpx;color: #666666;text-align: center;margin-top: 30rpx;}
+.loginthree{font-size: 32rpx;color: #666666;text-align: center;}
+.bottom{width: 200rpx;border-radius: 50rpx;font-size: 28rpx;height: 70rpx;line-height: 70rpx;display: inline-block;vertical-align: middle;
+  margin: 0 40rpx;}
+.placeclass{font-size: 30rpx;}
+.phone{z-index: 7}
+.phoneimg{width: 38rpx;}
+.phoneson{margin: 30rpx 30rpx 10rpx;background: #eee;padding: 20rpx;border-radius: 4px;}
+.phoneinp{width: 320rpx;}
+.phonesons{margin-right: 20rpx;}
+.sure{width: 220rpx;border-radius: 50rpx;letter-spacing: 2px;margin-top: 40rpx;background:#56BB37;color: #ffffff;height: 80rpx;line-height: 80rpx;}
+.yzm{color: #55B836;font-size: 28rpx;border: 1rpx solid #eee;padding: 10rpx;margin: 30rpx 0 10rpx;border-radius: 4px;}
+.ruletxt{position: fixed;top: 100rpx;right: -12rpx;background: rgba(0,0,0,0.2);color: #f1f3f5;padding: 2rpx 16rpx;border-radius: 20rpx;font-size: 26rpx;z-index: 3}
+.wenhimg{width: 25rpx;margin-right: 5rpx}
+.wenh5img{width: 20rpx;margin-right: 6rpx}
+.rule{width: 100%;height: 100%;background: rgba(0,0,0,0.4);position: fixed;z-index: 4;top: 0;left: 0;}
+.rulesus{width: 80%;background: #ffffff;border-radius: 10px;position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);padding: 30rpx 30rpx 60rpx;box-sizing: border-box}
+.ruleone{font-size: 32rpx;font-weight: bold;}
+.ruletwo{padding-left: 30rpx;font-size: 26rpx;display: flex;align-items:stretch;justify-content: flex-start;margin-top: 10rpx;}
+.ruletwo view:nth-child(1){margin-right: 4rpx}
+.chaimg{width: 32rpx;position: absolute;top: 10rpx;right: 10rpx;z-index: 5}
+.bott{position: absolute;bottom: 10rpx;padding-left:30rpx;font-size: 20rpx;color: #888;}
+.container .swiper{height: 280rpx;}
+.dh{margin: 100rpx auto 0;border-radius: 50rpx;background: #EC635D;width: 230rpx;padding: 10rpx;animation: animtdh 2s infinite;}
+.dhimg{width: 70rpx;margin-right: 5rpx;}
+.dhtxt{font-size: 28rpx;font-weight: bold;color: #f1f3f5;}
+.btimg{position: fixed;bottom: 50rpx;left: 20rpx;width: 400rpx;}
+.empower{position: absolute;width: 100%;height: 100%;top: 0;left: 0;}
+.bottom_picker{background:#1AAD19; color: white;text-align: center;}
+.bottompre{text-align: center;}
+@keyframes animtdh
+{
+from {transform: scale(0.9)}
+to {transform: scale(1)}
+}
+
+

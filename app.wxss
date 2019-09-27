@@ -1,0 +1,45 @@
+/**app.wxss**/
+.container {} 
+image{width: 100%}
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flexm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flexa{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.fleximg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flexl{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flexr{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.flexcb{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: space-between;
+}
+.flexc{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}

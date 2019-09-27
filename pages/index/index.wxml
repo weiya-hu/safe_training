@@ -1,0 +1,132 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- <view class="userinfo">
+    <view class='userimgpre fleximg'>
+      <view class='userimg fleximg'>
+        <view class='userimgson fleximg'>
+          <image mode='widthFix' class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+        </view>  
+      </view>
+    </view>
+    <view class='area fleximg'><view>{{userinfotxt.realname}}</view></view>
+    <view class='usertxt flex'>
+      <view>工区：{{userinfotxt.area}}</view>
+      <view>工种：{{userinfotxt.team}}</view>
+    </view>
+  </view> -->
+  <view>
+    <swiper bindtap='ruleshow' circular='true' class='swiper' indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+      <swiper-item>
+        <image src="../../images/swipe9.jpg" class="slide-image" width="355" height="150" mode='widthFix'/>
+      </swiper-item>
+      <swiper-item>
+        <image src="../../images/swipe7.png" class="slide-image" width="355" height="150" mode='widthFix'/>
+      </swiper-item>
+      <swiper-item>
+        <image src="../../images/swipe3.gif" class="slide-image" width="355" height="150" mode='widthFix'/>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class='usertxt flex'>
+    <view class="gs">公司：{{userinfotxt.area}}</view>
+    <!-- <view>工种：{{userinfotxt.team}}</view> -->
+  </view>
+  <view class='content'>
+    <picker class='dat'  bindchange="bindexerciseChange" value="{{index}}" range="{{title}}"> 
+      <view class='datimg fleximg'><image mode='widthFix' bindtap="bindViewTap" class="userinfo-avatar" src="../../images/dati2.png"></image></view>
+      <view class='dattxt'>答题</view>
+      <view class='empower' wx:if='{{empowershow}}' catchtap="power" data-type="title"></view>
+    </picker>
+    <picker class='dat study' bindchange="bindstudyChange" value="{{index}}" range="{{study}}">
+      <view class='datimg fleximg'><image mode='widthFix' bindtap="bindViewTap" class="userinfo-avatar" src="../../images/study1.png"></image></view> 
+      <view class='dattxt'>学习</view>
+      <view class='empower' wx:if='{{empowershow}}' catchtap="power" data-type="study"></view>
+    </picker> 
+  </view>
+  <view class='login fleximg' wx:if='{{loginshow}}'>
+    <view wx:if="{{isHide}}" class='loginsus'>
+      <view class='loginone'>您还没有授权登录</view>
+      <view class='logintwo'>请登录后再进行操作</view>
+      <view class='loginthree'>登录后才能积累积分</view>
+      <view class='allowimg fleximg'>
+        <image mode='widthFix' bindtap="bindViewTap" class="userinfo-avatar" src="../../images/allow.jpg"></image>
+      </view> 
+      <view class="bottompre"> 
+        <!-- 暂不登录跳转picker选择 -->
+        <picker class='bottom bottom_picker' bindtap="loginshow_no" bindchange="{{type=='title'?'bindexerciseChange':type=='study'?'bindstudyChange':''}}" value="{{index}}" range="{{type=='title'?title:type=='study'?study:''}}">暂不登录</picker>
+        <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">立即登录</button>
+      </view>
+      
+    </view>
+    <view  wx:if="{{phoneshow}}" class='phone'>
+      <view class='getphone'>手机号登录</view>
+      <form bindsubmit="formSubmit">
+        <view class='flexl phoneson '>
+          <label class='fleximg phoneimg' for='username'>
+            <image src='../../images/phone.png' mode='widthFix'></image>
+          </label>
+          <input id='username' auto-focus='true' name="phone" class='phoneinp' type='number' placeholder='请输入您的手机号码'  placeholder-class='placeclass' maxlength='11' value='{{phone}}' bindinput="phonetap"></input>
+        </view>
+        <view class="flexl">
+          <view class='flexl phoneson phonesons'>
+            <input name="yzm" class='phoneinp' type='number' placeholder='请输入您收到的验证码'  placeholder-class='placeclass' maxlength='6'></input>
+          </view>
+          <view class="yzm" bindtap='getyzm'>{{yzm}}</view>
+        </view>
+        
+        <view class="flex">
+          <button bindtap="quxiao" class='sure'>取消</button>
+          <button loading='{{loading}}' hover-class='none' form-type='submit' class='sure'>确认</button>
+        </view>
+        
+      </form>
+    </view>
+    <!-- <view class='botimg fleximg'>
+      <image mode='widthFix' src="../../images/bot.png"></image>
+      <view class='bot'></view>
+    </view> -->
+  </view>
+  <view class='ruletxt flexl' bindtap='ruleshow'>
+    <view class='wenhimg fleximg'>
+      <image mode='widthFix' class="userinfo-avatar" src="../../images/wenh4.png"></image>
+    </view>
+    <view>规则</view>
+  </view>
+  <view class='rule' wx:if='{{ruleshow}}'>
+    <view class='rulesus'>
+      <view class='ruleone'>奖励规则</view>
+      <view class='ruletwo'>
+        <view>1.</view>
+        <view>每学习完一篇完整的文章或看完一个学习视频，会奖励10积分，每篇文章或视频奖励一次。</view></view>
+      <view class='ruletwo'>
+        <view>2.</view>
+        <!-- <view>每套题答题得分超过60分(包含60)，会奖励200积分；得分超过70分(包含70)，会奖励300积分；得分超过80分(包含80)，会奖励500积分；得分超过90分(包含90)，会奖励1000积分；得分为100分，会奖励1500积分；每套题可重复做，一套题累计奖励不超过1500积分。</view> -->
+        <view>每次答题会随机从题库里抽取10道题出来测试，每道题目是1积分，答对可获得，每一道题的积分只能获取一次，每套题可重复做，每套题所测试成绩最高分会纳入个人学习考核。</view>
+      </view>
+      <view class='ruletwo'>
+        <view>3.</view>
+        <view>小程序所得积分可兑换为话费充值到注册小程序的手机号码里面，兑换比例根据员工答题情况而定，一般来说答题正确率越高，学习积分越多兑换提现比例越高。</view>
+        <!-- <view>小程序所得积分可兑换为微信余额，现由于微信。</view> -->
+      </view>
+      <view class='ruletwo'>
+        <view>4.</view>
+        <view>在随手拍模块上传工地上有安全隐患的信息和图片，由管理员审核通过后可获得200积分</view>
+      </view>
+      <view class='bott flex'>
+        <view class='wenh5img fleximg'>
+          <image mode='widthFix' class="userinfo-avatar" src="../../images/wenh5.png"></image>
+        </view>
+        <view>奖励规则最终解释权归重庆高速集团顾问公司所有</view>
+      </view>
+      
+      <view class='chaimg fleximg' bindtap='ruleshow'>
+        <image mode='widthFix' class="userinfo-avatar" src="../../images/cha2.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class='dh flexl' bindtap='tomine'>
+    <view class='fleximg dhimg'><image mode='widthFix' src='../../images/dh1.png'></image></view>
+    <view class='dhtxt'>去兑换积分</view>
+  </view>
+  <!-- <view class='fleximg btimg'><image mode='widthFix' src='../../images/bt3.png'></image></view> -->
+</view>

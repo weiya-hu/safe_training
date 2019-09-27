@@ -1,0 +1,57 @@
+/* pages/photo/photo.wxss */
+.con{overflow: hidden;}
+.nav{height: 100rpx;width: 100%;position: fixed;top: 0;left: 0; box-shadow: 0 0 6px 2px rgba(0,0,0,0.1);
+  background: #ffffff;}
+.address,.type{font-size: 34rpx; margin: 0 22rpx;color: #555}
+.pulldownimg{width: 20rpx;display: block;transition: all 0.15s linear;margin-left: 5rpx;}
+.navtxt_active .addresstxt{padding: 4rpx 0;border-bottom: 2px solid #EC635D;font-size: 34rpx;color:#555;font-weight: bold;}
+.navtxt_active .pulldownimg{transform: rotate(180deg)}
+.addimg{width: 50rpx;position: absolute;top: 50%;right: 20rpx;transform: translateY(-50%)}
+.addressmd{position: fixed;top: 100rpx;width: 100%;background: rgba(0,0,0,0.4);display: none;z-index: 9;}
+.addressmdson{background: #f3f3f3;display: flex;justify-content:space-around;flex-wrap: wrap;align-content: center;padding: 20rpx 0;}
+.addressmd_active{display: block;}
+.cont{margin-top: 100rpx;}
+.addressmditem{padding: 10rpx;background: #e3e3e3;border-radius: 2px;margin: 10rpx;font-size: 30rpx;width: 300rpx;text-align: center;
+  overflow: hidden;text-overflow:ellipsis;white-space: nowrap;color: #555}
+.usertximg {width: 70rpx;height:70rpx;border-radius: 10px;overflow: hidden;margin-right: 10rpx;}
+.contentitem{display: flex;justify-content: flex-start;align-items: flex-start;padding: 20rpx;flex: 1;border-bottom: 1px solid #eee}
+.itemright{flex: 8;}
+.photoimg{width: 178rpx;height: 178rpx; margin: 0 1% 15rpx;overflow:hidden;}
+.realname{font-size: 34rpx;font-weight: bold;color: #5A6266}
+.typename{font-size: 26rpx;padding: 5rpx 10rpx;border-radius: 4px;background: rgba(239,106,106,0.9);color: #f1f3f5}
+.content{font-size: 32rpx;margin: 20rpx 0}
+.itemtop{margin-bottom: 8rpx;}
+.itembot{margin-top: 15rpx;}
+.time{font-size: 24rpx;color: #999;}
+.bidname{font-size: 24rpx;color: #999;}
+.width{width: 100%;}
+.height{height: 100% !important;min-width:150rpx;}
+.images{display: flex;justify-content: flex-start;flex-wrap: wrap;align-content: center;padding: 20rpx 0 0;}
+.nodata{display: flex;justify-items: center; align-content: center;flex-wrap: wrap;flex-direction: column;margin-top: 400rpx; width: 100%;height: 100%;}
+.nodataimg{width:50%;margin: 0 auto;}
+.nodatatxt{text-align: center;font-size: 32rpx;color: #999;margin-top: 30rpx;}
+.bot view{width: 100%;text-align: center;color: #999;font-size: 24rpx;padding: 10rpx 0;}
+.nologin{text-align: center;text-decoration: underline;color:#55B836 ;margin-top: 100rpx;}
+
+
+/* 授权框样式 */
+.login{background: rgba(0,0,0,0.4);width: 100%;height: 100%;position: fixed;top: 0;z-index: 4}
+.loginbt{padding: 10rpx 20rpx;background: #EC635D;color: #ffffff;font-size: 32rpx;font-weight: bold;text-align: center;display: inline-block;letter-spacing: 2px;border-radius: 4px;}
+.loginsus,.phone{width: 80%;position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);background: #ffffff;border-radius: 10px;padding-bottom: 40rpx;z-index: 9}
+.botimg{position: fixed;bottom: 0;left: 0;width: 100%}
+/* .bot{background: rgba(0,0,0,0.4);position: absolute;width: 100%;} */
+.loginone,.getphone{text-align: center;color: #666666;font-size: 36rpx;letter-spacing: 1px;height: 90rpx;line-height: 90rpx; border-bottom: 1rpx solid #ccc;}
+.logintwo{font-size: 32rpx;color: #666666;text-align: center;margin-top: 30rpx;}
+.loginthree{font-size: 32rpx;color: #666666;text-align: center;}
+.bottom{width: 200rpx;border-radius: 50rpx;font-size: 28rpx;height: 70rpx;line-height: 70rpx;display: inline-block;vertical-align: middle;margin: 0 40rpx;}
+.placeclass{font-size: 30rpx;}
+.phone{z-index: 7}
+.phoneimg{width: 38rpx;}
+.phoneson{margin: 30rpx 30rpx 10rpx;background: #eee;padding: 20rpx;border-radius: 4px;}
+.phoneinp{width: 320rpx;}
+.phonesons{margin-right: 20rpx;}
+.sure{width: 220rpx;border-radius: 50rpx;letter-spacing: 2px;margin-top: 40rpx;background:#56BB37;color: #ffffff;height: 80rpx;line-height: 80rpx;}
+.yzm{color: #55B836;font-size: 28rpx;border: 1rpx solid #eee;padding: 10rpx;margin: 30rpx 0 10rpx;border-radius: 4px;}
+.empower{position: absolute;width: 100%;height: 100%;top: 0;left: 0;}
+.bottom_picker{background:#1AAD19; color: white;text-align: center;} 
+.bottompre{text-align: center;}

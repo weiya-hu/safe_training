@@ -1,0 +1,53 @@
+/* pages/mine/mine.wxss */
+.userimg{width: 150rpx;border-radius: 50%;overflow: hidden;margin: 0 auto;}
+.yue{font-size: 32rpx;text-align: center;margin:10rpx auto 10rpx;}
+.tix{background:#EC635D; color: #ffffff;border-radius: 8px;text-align: center;padding: 10rpx 20rpx;letter-spacing: 4px;}
+.mine{display: flex;flex-direction: column;align-items: center;align-content: center;background: #f1f3f5;}
+.minetop{background: #EC635D;width: 100%;height: 300rpx;}
+.name{color: #ffffff;text-align: center;width: 100%;font-size: 32rpx;margin-top: 30rpx;}
+.scoreimg{width: 30rpx;margin-right: 4rpx;}
+.moneyimg{width: 40rpx;margin-right: 4rpx;}
+.score{width: 96%;background: #ffffff;margin: 15rpx auto;padding: 10rpx 20rpx;box-sizing: border-box;border-radius: 4px;box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.1)}
+.scores{margin-top: 30rpx;}
+.wenhimg{width: 40rpx;margin-left: 30rpx;}
+.changesus{width: 100%;height: 100%;background: rgba(0,0,0,0.2);position: fixed;top: 0;left: 0}
+.changesusitem{background: #ffffff;border-radius: 10px;padding: 30rpx 30rpx 40rpx;width: 70%;position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%)}
+.phones{text-align: left;padding: 10rpx 0 10rpx;border-bottom: 2px solid #EC635D;margin: 0 0 20rpx 0;font-size: 30rpx;}
+.exchange{display: flex;justify-content: center;align-content: center;flex-wrap: wrap;}
+.exchangeitem{color: #EC635D;border: 1rpx solid #EC635D;border-radius: 4px;margin: 10rpx;width: 190rpx;padding: 10rpx 0;}
+.money view:nth-child(1){font-size: 40rpx;}
+.money view:nth-child(2){font-size: 30rpx;}
+.int{font-size: 22rpx;text-align: center;}
+.chaimg{width: 70rpx;position: absolute;top: -100rpx;right:0rpx;}
+.loginbtn{border-radius: 4px;padding: 5rpx 10rpx;box-shadow: 0 0 3px 1px rgba(0,0,0,0.2);background: #ffffff;color: #EC635D;
+  margin: 0 10rpx;}
+.jfimg{width:35rpx;margin-right: 5rpx;}
+.nextimg{width: 30rpx;}
+.jfitem{height: 70rpx;}
+.border_bot{border-bottom: 1rpx solid #eee;}
+
+
+
+
+
+  /* 授权框样式 */
+.login{background: rgba(0,0,0,0.4);width: 100%;height: 100%;position: fixed;top: 0;z-index: 4}
+.loginbt{padding: 10rpx 20rpx;background: #EC635D;color: #ffffff;font-size: 32rpx;font-weight: bold;text-align: center;display: inline-block;letter-spacing: 2px;border-radius: 4px;}
+.loginsus,.phone{width: 80%;position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);background: #ffffff;border-radius: 10px;padding-bottom: 40rpx;z-index: 9}
+.botimg{position: fixed;bottom: 0;left: 0;width: 100%}
+/* .bot{background: rgba(0,0,0,0.4);position: absolute;width: 100%;} */
+.loginone,.getphone{text-align: center;color: #666666;font-size: 36rpx;letter-spacing: 1px;height: 90rpx;line-height: 90rpx; border-bottom: 1rpx solid #ccc;}
+.logintwo{font-size: 32rpx;color: #666666;text-align: center;margin-top: 30rpx;}
+.loginthree{font-size: 32rpx;color: #666666;text-align: center;}
+.bottom{width: 200rpx;border-radius: 50rpx;font-size: 28rpx;height: 70rpx;line-height: 70rpx;display: inline-block;vertical-align: middle;margin: 0 40rpx;}
+.placeclass{font-size: 30rpx;}
+.phone{z-index: 7}
+.phoneimg{width: 38rpx;}
+.phoneson{margin: 30rpx 30rpx 10rpx;background: #eee;padding: 20rpx;border-radius: 4px;}
+.phoneinp{width: 320rpx;}
+.phonesons{margin-right: 20rpx;}
+.sure{width: 220rpx;border-radius: 50rpx;letter-spacing: 2px;margin-top: 40rpx;background:#56BB37;color: #ffffff;height: 80rpx;line-height: 80rpx;}
+.yzm{color: #55B836;font-size: 28rpx;border: 1rpx solid #eee;padding: 10rpx;margin: 30rpx 0 10rpx;border-radius: 4px;}
+.empower{position: absolute;width: 100%;height: 100%;top: 0;left: 0;}
+.bottom_picker{background:#1AAD19; color: white;text-align: center;} 
+.bottompre{text-align: center;}

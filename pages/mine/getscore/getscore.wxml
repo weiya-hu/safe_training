@@ -1,0 +1,42 @@
+<!--pages/mine/getscore/getscore.wxml-->
+<view >
+  <view class="question flex">
+    <view class="fleximg datiimg">
+      <view class="datiimgson"><image mode="widthFix" src="../../../images/dati2.png"></image></view>
+    </view>
+    <view class="questiontxt">
+      <view>每日答题</view>
+      <view>每套题第一次答题后可以根据分数获取相对应的积分，每天可获取{{list.questionAllSize}}次积分，今日还剩余{{list.questionSurplusSize}}次</view>
+    </view>
+    <view class="btn fleximg">
+      <!-- <view class="did" wx:if='{{list.questionSurplusSize==0}}'>已完成</view> -->
+      <view class="toget" bindtap="toindex">去完成</view>
+    </view>
+  </view>
+  <view class="question study flex">
+    <view class="fleximg datiimg">
+      <view class="datiimgson studyson"><image mode="widthFix" src="../../../images/study1.png"></image></view>
+    </view>
+    <view class="questiontxt">
+      <view>安全小课堂</view>
+      <view>现有学习资料包含视频和图文，每次学习没学过的资料可获取10积分，每天最多可获取{{list.learnAllSize}}次积分，已学过的资料不会再奖励积分，今日还剩余{{list.learnSurplusSize}}次</view>
+    </view>
+    <view class="btn fleximg">
+      <!-- <view class="did">已完成</view> -->
+      <view class="toget togetstudy" bindtap="toindex">去完成</view>
+    </view>
+  </view>
+  <view class="question photo flex">
+    <view class="fleximg datiimg">
+      <view class="datiimgson photoson"><image mode="widthFix" src="../../../images/photoget.png"></image></view>
+    </view>
+    <view class="questiontxt">
+      <view>每日随手拍</view>
+      <view>每天参与随手拍上传您身边随处见到的隐患，通过审核后可获得200积分，每日可获得一次</view>
+    </view>
+    <view class="btn fleximg">
+      <!-- <view class="did">已完成</view> -->
+      <view class="toget togetphoto" bindtap="toputphoto">去完成</view>
+    </view>
+  </view>
+</view>

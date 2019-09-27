@@ -1,0 +1,8 @@
+<!--pages/study/study.wxml-->
+<view>
+  <view wx:for='{{studylist}}' wx:key='index' bindtap='tostudydetail' data-pdfitem='{{item}}' class='flexl studyitem'>
+    <view class='fleximg pdfimg'><image mode='widthFix' src='../../images/pdf.png'></image></view>
+    <view class='studytxt'>{{item.name}}</view>
+  </view>
+</view>
+

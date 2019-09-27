@@ -1,0 +1,16 @@
+<!--pages/exercise/exercise.wxml-->
+<view class='exercise' style='height:{{height}}px'>
+  <view class='titleitem'>
+    <view class='titletop flex'>
+      <view  class='titletype'>单项选择</view>
+      <view class='titlenum flexr'><view class='idx'>{{idx+1}}</view>/{{totalnum}}</view>
+    </view>
+    <view class='title'>
+      <view class='titletxt'>{{titles[idx].title}}</view>
+      <view wx:for='{{titles[idx].answer}}' wx:key='index' bindtap='checkanswer' data-answer='{{index}}' 
+      class="answers {{answernum==index?'answer':''}} {{key==index?'right':''}}">{{item}}</view>
+    </view>
+    <view class='toscore' bindtap='toscore'>交卷</view>
+  </view>
+  
+</view>

@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/exercise/exercise",
+    "pages/study/study",
+    "pages/score/score",
+    "pages/video/video",
+    "pages/study/studydetail/studydetail",
+    "pages/video/videodetail/videodetail",
+    "pages/photo/photo",
+    "pages/photo/putphoto/putphoto",
+    "pages/mine/scoreDetail/scoreDetail",
+    "pages/mine/exchangeDetail/exchangeDetail",
+    "pages/mine/getscore/getscore",
+    "pages/mine/exchange/exchange"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#EC635D",
+    "navigationBarTitleText": "安全培训",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#7b7b7b",
+    "borderStyle": "black",
+    "selectedColor": "#EC635D",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index_active2.png"
+      },
+      {
+        "pagePath": "pages/photo/photo",
+        "text": "随手拍",
+        "iconPath": "images/photo.png",
+        "selectedIconPath": "images/photo_active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine_active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

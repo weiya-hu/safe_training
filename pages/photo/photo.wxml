@@ -1,0 +1,100 @@
+<!--pages/photo/photo.wxml-->
+<view wx:if='{{nologin}}' class="nologin" bindtap="loginshow">
+  您还没有登录，去登录？
+</view>
+<view wx:else='{{nologin}}' class="con">
+  <view class='nav flexm'>
+    <view class="address">
+      <view class="flex {{ads_tp==1?'navtxt_active':''}}" bindtap="changenav" data-idx="1">
+        <view class="addresstxt">{{addresstxt}}</view>
+        <view class='pulldownimg fleximg'><image mode='widthFix' src="../../images/pulldown.png"></image></view>
+      </view>
+    </view>
+    <view class="addressmd addressmd_active" style="height:{{height}}px" wx:if='{{ads_tp==1}}' catchtap="pullback">
+      <view class="addressmdson" catchtap="pullbackson">
+        <view wx:for='{{address}}' wx:key='index' class="addressmditem" catchtap="changeaddress" data-item="{{item}}">{{item.name}}</view>
+      </view>
+    </view>
+    <view class="address {{ads_tp==2?'navtxt_active':''}}"  bindtap="changenav"  data-idx="2">
+      <view class="flex ">
+        <view class="addresstxt">{{typetxt}}</view>
+        <view class='pulldownimg fleximg'><image mode='widthFix' src="../../images/pulldown.png"></image></view>
+      </view>
+    </view>
+    <view class="addressmd addressmd_active" style="height:{{height}}px" wx:if='{{ads_tp==2}}' catchtap="pullback">
+      <view class="addressmdson" catchtap="pullbackson">
+        <view wx:for='{{type}}' wx:key='index' class="addressmditem"  catchtap="changetype"  data-item="{{item}}">{{item.name}}</view>
+      </view>
+    </view>
+    <view class='addimg fleximg' bindtap="toputphoto"><image mode='widthFix' src="../../images/add.png"></image></view>
+  </view>
+  <view class='cont' wx:if='{{datashow==1}}'>
+    <view wx:for='{{photolist}}' wx:key='index' class="contentitem">
+      <view class='usertximg fleximg'><image mode='widthFix' src="{{item.userimg?item.userimg:'../../images/usertx.jpg'}}"></image></view>
+      <view class="itemright">
+        <view class="flex itemtop">
+          <view class="realname">{{item.realname}}</view>
+          <view class="typename">{{item.typeName}}</view>
+        </view>
+        <text decode='true' space='nbsp' class="content">{{item.content}}</text>
+        <view class="images">
+          <view class='photoimg fleximg' wx:for='{{item.image}}' wx:for-item="items" wx:key='index' bindtap='previewimg' data-item='{{items}}' data-itempre="{{item}}">
+            <image lazy-load='true' mode='aspectFit' src="{{items?items:'../../images/default.png'}}" bindload="imageLoad" data-idx='{{index}}' class="{{imgstyle[index]?'width':'height'}}"></image>
+          </view>
+        </view>
+        <view class="flex itembot">
+          <view class="time">{{item.createTime}}</view>
+          <view class="bidname">{{item.bidsectionName}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="bot">
+      <view wx:if='nomoreshow'>-------到底了-------</view>
+    </view>
+  </view>
+  <view wx:if='{{datashow==2}}' class="nodata">
+    <view class='nodataimg fleximg'><image mode='widthFix' src="../../images/nodata3.png"></image></view>
+    <view class='nodatatxt'>没有搜索到内容</view>
+  </view>
+
+</view>
+<view class='login fleximg' wx:if='{{loginshow}}'>
+    <view wx:if="{{isHide}}" class='loginsus'>
+      <view class='loginone'>您还没有授权登录</view>
+      <view class='logintwo'>请登录后再进行操作</view>
+      <view class='loginthree'>登录后才能积累积分</view>
+      <view class='allowimg fleximg'>
+        <image mode='widthFix' bindtap="bindViewTap" class="userinfo-avatar" src="../../images/allow.jpg"></image>
+      </view> 
+      <view class="bottompre"> 
+        <button class='bottom bottom_picker' bindtap="loginshow" >暂不登录</button>
+        <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">立即登录</button>
+      </view>
+      
+    </view>
+    <view  wx:if="{{phoneshow}}" class='phone'>
+      <view class='getphone'>手机号登录</view>
+      <form bindsubmit="formSubmit">
+        <view class='flexl phoneson '>
+          <label class='fleximg phoneimg' for='username'>
+            <image src='../../images/phone.png' mode='widthFix'></image>
+          </label>
+          <input id='username' auto-focus='true' name="phone" class='phoneinp' type='number' placeholder='请输入您的手机号码'  placeholder-class='placeclass' maxlength='11' value='{{phone}}' bindinput="phonetap"></input>
+        </view>
+        <view class="flexl">
+          <view class='flexl phoneson phonesons'>
+            <input name="yzm" class='phoneinp' type='number' placeholder='请输入您收到的验证码'  placeholder-class='placeclass' maxlength='6'></input>
+          </view>
+          <view class="yzm" bindtap='getyzm'>{{yzm}}</view>
+        </view>
+        
+        <view class="flex">
+          <button bindtap="loginshow" class='sure'>取消</button>
+          <button loading='{{loading}}' hover-class='none' form-type='submit' class='sure'>确认</button>
+        </view>
+        
+      </form>
+    </view>
+  </view>
+
+

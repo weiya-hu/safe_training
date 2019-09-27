@@ -1,0 +1,10 @@
+/* pages/mine/scoreDetail/scoreDetail.wxss */
+.itemleft{display: flex;justify-content: flex-start;align-items: flex-start;flex-direction: column;}
+.itemright{display: flex;justify-content: flex-end;align-items: flex-end;flex-direction: column;}
+.item{padding: 20rpx 30rpx 20rpx 0  ;border-bottom: 1rpx solid #eee;box-sizing: border-box;margin-left: 30rpx;}
+.remark{font-size: 32rpx;color: #333;}
+.time{color: #aaa;font-size: 24rpx;margin-top: 15rpx;}
+.intg0{color: #D6B44D;font-weight: bold}
+.intg1{color: #000;font-weight: bold}
+.surplus{color: #aaa;font-size: 24rpx;margin-top: 10rpx;}
+.loading,.bot{font-size: 26rpx;color: #aaa;text-align: center;margin: 10rpx 0;}

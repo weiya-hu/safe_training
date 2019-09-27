@@ -1,0 +1,9 @@
+/* pages/video/videodetail/videodetail.wxss */
+.video{width: 100%;}
+.videoname{padding: 15rpx 30rpx;border-bottom: 1rpx solid #eee;font-size: 32rpx;}
+.more{margin: 30rpx 15rpx;padding-left: 20rpx;font-size: 32rpx;font-weight: bold;border-left: 3px solid #1BD0BD}
+.playimg{position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);width: 60rpx;}
+.videoimg{width: 35%;position: relative;border-radius: 4px;overflow: hidden;height: 125rpx;}
+.videolistitem{margin: 30rpx;display: flex;justify-content: flex-start;align-items: flex-start;}
+.videonames{font-size: 28rpx;width: 60%;text-align: left;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;margin-left: 20rpx;}
+.videoactive{color: #1BD0BD}

@@ -1,0 +1,11 @@
+/* pages/exercise/exercise.wxss */
+.exercise{background: #ffffff;overflow: hidden}
+.answer{background: #EC635D;color:#ffffff;}
+.right{color:#ffffff;background: #1BD0BD}
+.titletop{padding: 20rpx;border-bottom: 1rpx solid #aaa;font-size: 30rpx;}
+.titleitem{background: #ffffff;width:100%;margin: 10rpx auto}
+.titletxt{font-size: 32rpx;margin: 10rpx 0;}
+.idx{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color: #1BD0BD;font-weight: bold;font-size: 36rpx;margin-right: 6rpx}
+.title{padding: 20rpx}
+.answers{margin: 10rpx 0;padding:15rpx ;border-radius: 40rpx;}
+.toscore{padding: 10rpx 100rpx;letter-spacing: 4px;font-size: 36rpx; color:#ffffff;background: #1BD0BD; border-radius: 40rpx;display: inline-block;position: fixed;bottom: 200rpx;left: 50%;transform: translateX(-50%);font-weight: bold;}

@@ -1,0 +1,44 @@
+<!--pages/photo/putphoto/putphoto.wxml-->
+<view class='co'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='flexl title'>
+      <label class='titlelab flexr' for='type'><view class='xinxin'>*</view>位置：</label>
+      <picker mode="selector" range="{{addresstxtlist}}" bindchange="bindaddressChange" class='typepicker' name='address'>
+        <view class='typevalue'>{{addresstxt}}</view>
+        <view class="xiaimg"><image mode='widthFix' src='../../../images/xia.png'></image></view>
+      </picker>
+    </view>
+    <view class='flexl title'>
+      <label class='titlelab flexr' for='type'><view class='xinxin'>*</view>类型：</label>
+      <picker mode="selector" range="{{typetxtlist}}" bindchange="bindtypeChange" class='typepicker' name='type'>
+        <view class='typevalue'>{{typetxt}}</view>
+        <view class="xiaimg"><image mode='widthFix' src='../../../images/xia.png'></image></view>
+      </picker>
+    </view>
+    <view class="flexl title {{tempFilePathss.length>3?'title1':''}}" >
+      <label class='titlelab' for='content'>上传图片：</label>
+      <view class='imgflx'>
+        <view wx:for='{{tempFilePathss}}' wx:key='index'>
+          <view class="uploadimg fleximg {{tempFilePathss.length>3?'addimgg':''}}" bindtap='previewimg' data-item='{{item}}' data-indx='{{index}}'>
+            <image mode='aspectFill' src='{{item}}' bindload="imageLoad" data-idx='{{index}}' 
+            class="{{imgstyle[index]?'width':'height'}} "></image>
+            <view class='ca fleximg' catchtap='deletee' data-item='{{item}}'><image mode='widthFix' src='../../../images/ca.png'></image></view>
+          </view>
+        </view>
+        <view wx:if="{{count>0}}" class="fleximg addimg1 {{tempFilePathss.length>=3?'addimgg':''}}" bindtap='addimg'>
+          <image mode='widthFix' src='../../../images/addimg2.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='flexl title'>
+      <label class='titlelab flexr' for='content'><view class='xinxin'>*</view>内容：</label>
+      <textarea name='content' id='content' bindinput='contentinp' class='contentinp' type='text' placeholder='请输入内容'  placeholder-class='placeclass' confirm-type='next' focus='{{usernamefocus}}' bindfocus='usernamefocus' bindblur='usernameblur' bindconfirm	='next' value="{{contentvalue}}" maxlength='400' cursor-spacing='40'>
+        <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+      </textarea>
+    </view>
+    <view class='btn'>
+      <button loading='{{loading}}' hover-class='none' form-type='reset' >取消</button>
+      <button loading='{{loading}}' hover-class='none' form-type='submit'>发送</button>
+    </view>
+  </form>
+</view>

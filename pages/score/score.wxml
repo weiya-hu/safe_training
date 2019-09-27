@@ -1,0 +1,29 @@
+<!--pages/score/score.wxml-->
+<view>
+  <view class='fleximg top'>
+    <view class='score'>{{score}}</view>
+    <view class='totlescore'>/{{totlescore}}分</view>
+  </view>
+  <view>
+    <view class='questiontype'>单项选择题</view>
+    <view class='questions'>
+      <view class="questionitem {{item==0?'right':item==1?'false':''}}" wx:for='{{scores}}' wx:key='index'>{{index+1}}</view>
+    </view>
+  </view>
+  <view class='point' wx:if='{{pointsusshow}}'>
+    <view class='pointsus' wx:if='{{getpointshow}}'>
+      <view class='getscoreimg fleximg'>
+        <image mode='widthFix' class="getscore" src="../../images/getscore.png"></image>
+      </view> 
+      <view class='pointtxt'>恭喜获得{{scorejf}}积分</view>
+      <view class='sure' bindtap='pointsusshow'>确定</view>
+    </view>
+    <view class='pointsus' wx:if='{{nopointshow}}'>
+      <view class='getscoreimg fleximg'>
+        <image mode='widthFix' class="getscore" src="../../images/noscore1.png"></image>
+      </view> 
+      <view class='pointtxt'>没有获得积分，再接再厉</view>
+      <view class='sure' bindtap='pointsusshow'>确定</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,16 @@
+<!--pages/mine/scoreDetail/scoreDetail.wxml-->
+<view>
+  <view wx:for='{{scorelist}}' wx:key='index' class="flex item">
+    <view class="itemleft">
+      <view class="remark">{{item.remark}}</view>
+      <view class="time">{{item.createTime}}</view>
+    </view>
+    <view class="itemright">
+      <view class="intg0" wx:if='{{item.type==0}}'>+{{item.integral}}</view>
+      <view class="intg1" wx:if='{{item.type==1}}'>-{{item.integral}}</view>
+      <view class="surplus">总积分：{{item.surplus}}</view>
+    </view>
+  </view>
+  <view class="loading" wx:if='{{loadingshow}}'>加载中...</view>
+  <view class="bot" wx:if='{{!isupdate}}'>--- 我是有底线的 ---</view>
+</view>

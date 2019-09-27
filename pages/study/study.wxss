@@ -1,0 +1,4 @@
+/* pages/study/study.wxss */
+.pdfimg{width: 80rpx;}
+.studyitem{margin: 20rpx;padding: 0 0 0 30rpx;border-bottom: 1px solid #eee;}
+.studytxt{font-size: 32rpx;margin-left: 15rpx;}

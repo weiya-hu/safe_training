@@ -1,0 +1,7 @@
+<!--pages/mine/exchange/exchange.wxml-->
+<view>
+  <view>
+    <view>到账方式：微信零钱</view>
+    <view></view> 
+  </view>
+</view>

@@ -1,0 +1,15 @@
+<!--pages/video/video.wxml-->
+<view class='vidoe'>
+  <view wx:for='{{videolist}}' wx:key='index' class='videoitem' bindtap='tovideodetail' data-idx='{{index}}'>
+    <view class='fleximg coverimg'>
+      <image src='{{item.cover}}' mode='widthFix'></image>
+      <view class='fleximg playimg'>
+        <image src='../../images/play.png' mode='widthFix'></image>
+      </view>
+    </view>
+    <view class='videotitle fleximg'>
+      <view  class='videotitleson'>{{item.name}}</view>  
+    </view> 
+  </view>
+
+</view>

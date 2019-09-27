@@ -1,0 +1,20 @@
+<!--pages/video/videodetail/videodetail.wxml-->
+<view>
+  <video custom-cache="{{false}}" class='video' src='{{videoitem.address}}' autoplay='{{true}}' bindended='videoend' binderror='binderrorvido' poster='{{videoitem.cover}}'></video>
+  <scroll-view style='height:{{height}}px' scroll-y>
+    <view class='videoname'>{{videoitem.name}}</view>
+    <view>{{ee}}</view>
+    <view class='more'>为您推荐</view>
+    <view>
+      <view wx:for='{{videos}}' wx:key='index' class='videolistitem flexl' bindtap='changevideo' data-idex='{{index}}'>
+        <view class='videoimg fleximg'>
+          <image src='{{item.cover}}' mode='widthFix'></image>
+          <view class='fleximg playimg'>
+            <image src='../../../images/play.png' mode='widthFix'></image>
+          </view>
+        </view>
+        <view class="videonames {{idx==index?'videoactive':''}}">{{item.name}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
