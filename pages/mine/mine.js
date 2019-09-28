@@ -63,8 +63,7 @@ Page({
       console.log(res)
       that.setData({
         integral: res.data.result.surplus,
-        phonenumber: res.data.result.phone,
-        message: wx.getStorageSync('intmessage') ? wx.getStorageSync('intmessage') : '暂无正在兑换的积分'
+        phonenumber: res.data.result.phone
       })
     })
   },
