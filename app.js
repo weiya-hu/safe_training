@@ -3,7 +3,10 @@ App({
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
-
+    let islogin=wx.getStorageSync('islogin')
+    if(!islogin){
+      wx.setStorageSync('islogin', false)
+    }
   },
   questUrl(url,method, data) {
     wx.showLoading({
@@ -12,8 +15,8 @@ App({
     //返回一个Promise对象
     return new Promise(function (resolve, reject) {
       wx.request({
-        // url: 'https://kaijin.zhoumc.cn/'+url,
-        url: 'http://192.168.100.144:8080/'+url,
+        url: 'https://kaijin.zhoumc.cn/'+url,
+        // url: 'http://192.168.100.144:8080/'+url,
         method: method,
         data: data,
         //在header中统一封装报文头，这样不用每个接口都写一样的报文头定义的代码
@@ -56,8 +59,8 @@ App({
     //返回一个Promise对象
     return new Promise(function (resolve, reject) {
       wx.request({
-        // url: 'https://kaijin.zhoumc.cn/'+url,
-        url: 'http://192.168.100.144:8080/' + url,
+        url: 'https://kaijin.zhoumc.cn/'+url,
+        // url: 'http://192.168.100.144:8080/' + url,
         method: method,
         data: data,
         //在header中统一封装报文头，这样不用每个接口都写一样的报文头定义的代码
@@ -93,11 +96,12 @@ App({
       });
     });
   },
+  
   globalData: {
     userInfo: null,
-    url:'http://192.168.100.144:8080/',
-    imgurl:'http://192.168.100.144:8080/jeecg-boot/sys/common/view/',
-    // url:'https://kaijin.zhoumc.cn/',
-    // imgurl:'https://kaijin.zhoumc.cn/jeecg-boot/sys/common/view/'
+    // url:'http://192.168.100.144:8080/',
+    // imgurl:'http://192.168.100.144:8080/jeecg-boot/sys/common/view/',
+    url:'https://kaijin.zhoumc.cn/',
+    imgurl:'https://kaijin.zhoumc.cn/jeecg-boot/sys/common/view/'
   }
 })

@@ -30,7 +30,7 @@ Page({
       if(res.data.code===200){
         that.setData({
           scorelist: res.data.result.records,
-          isupdate: res.data.result.pages - res.data.result.current,
+          isupdate: !(res.data.result.pages - res.data.result.current),
           page: res.data.result.current
         })
       }
@@ -51,7 +51,7 @@ Page({
       if (res.data.code === 200) {
         that.setData({
           scorelist: scorelist.concat(res.data.result.records) ,
-          isupdate: res.data.result.pages - res.data.result.current,
+          isupdate: !(res.data.result.pages - res.data.result.current),
           page: res.data.result.current+1,
           loadingshow: false
         })
@@ -102,7 +102,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if(this.data.isupdate){
+    if(!this.data.isupdate){
       this.update()
     }
     

@@ -16,6 +16,7 @@ Page({
     sus:[
       { money: 10, int: 1000 }, { money: 20, int: 2000 }, { money: 30, int: 3000 }, { money: 50, int: 5000 }, { money: 100, int: 10000 },{ money: 300, int: 30000 }
     ],
+    
 
     isHide: true,//获取用户信息权限界面是否显示
     phoneshow: false,//绑定用户手机号码页面是否显示
@@ -30,6 +31,7 @@ Page({
     yzmswitch: true,
     phonenum: '',
     isyzm: false,//是否成功获取验证码
+    userInfo:''
   },
 
   /**
@@ -39,9 +41,8 @@ Page({
     this.height();
     this.setData({
       userInfo: wx.getStorageSync('userInfo'),
-      userinfotxt :wx.getStorageSync('userinfotxt')
+      islogin:wx.getStorageSync('islogin'),
     })
-    console.log(wx.getStorageSync('userinfotxt'))
   },
   height() {//获取底部高度
     let ht = ""; var that = this;
@@ -61,10 +62,14 @@ Page({
     },that=this;
     app.questUrl('jeecg-boot/wechat/getUserIntegral', 'post', data).then(function (res) {
       console.log(res)
-      that.setData({
-        integral: res.data.result.surplus,
-        phonenumber: res.data.result.phone
-      })
+      if(res.data.code===200){
+        that.setData({
+          integral: res.data.result.surplus,
+          phonenumber: res.data.result.phone,
+          userinfotxt: res.data.result.userInfo
+        })
+        wx.setStorageSync('userinfotxt', res.data.result.userInfo)
+      }  
     })
   },
   //点击登录按钮切换登录是否显示
@@ -209,8 +214,10 @@ Page({
           that.setData({
             loading: false,
             loginshow: false,
-            userinfotxt: res.data.result
+            userinfotxt: res.data.result,
+            islogin:true
           })
+          wx.setStorageSync('islogin', true)
           that.start()
           wx.setStorageSync('userinfotxt', res.data.result)
         } else {
@@ -224,81 +231,26 @@ Page({
     }
   },
   //初始判断有无从后台获取的用户信息，做显示
-  getuserinfotxt() {
-    let userinfotxt = wx.getStorageSync('userinfotxt')
-    if (userinfotxt) {
-      this.setData({
-        userinfotxt: userinfotxt,
-        userInfo: wx.getStorageSync('userInfo'),
-        loginshow: false,//以防在其他页面登录了这个页面之前登录框出来了但没有登录，防止已登录了还显示登录框
-      })
-    }
-  },
+  // getuserinfotxt() {
+  //   let userinfotxt = wx.getStorageSync('userinfotxt')
+  //   if (userinfotxt) {
+  //     this.setData({
+  //       userinfotxt: userinfotxt,
+  //       userInfo: wx.getStorageSync('userInfo'),
+  //       loginshow: false,//以防在其他页面登录了这个页面之前登录框出来了但没有登录，防止已登录了还显示登录框
+  //     })
+  //   }
+  // },
+  //点击兑换
   change(){
     var that=this;
     wx.navigateTo({
       url: 'exchange/exchange',
     })
-    // this.setData({
-    //   exchangeshow: !this.data.exchangeshow
-    // })
   },
+  //点击兑换框空白地方
   changee(){
     console.log(88)
-  },
-  exchange(e){
-    console.log(e)
-    var intitem = e.currentTarget.dataset.intitem, integral = this.data.integral,that=this;
-    if (intitem.int <= integral){
-      wx.showModal({
-        title: '提示',
-        content: '是否确认兑换' + intitem.money + '元话费',
-        success(res) {
-          if (res.confirm) {
-            var data={
-              openid: wx.getStorageSync('openId'),
-              card_worth:intitem.money
-              // card_worth: 1
-            }
-            app.questUrl('jeecg-boot/wechat/dhhf','post',data).then(function(res){
-              console.log(res)
-              that.change()
-              if (res.data.success){
-                wx.showModal({
-                  content: res.data.message + '(具体到账时间以实际为准)'
-                })
-              }else{
-                wx.showModal({
-                  content: res.data.message
-                })
-              }
-              that.start()
-            })
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
-      })
-    }else{
-      wx.showModal({
-        title: '提示',
-        content:'您的积分不足以兑换'+intitem.money+'元话费'
-      })
-    }
-  },
-  showint(){
-    var that=this
-    wx.showModal({
-      title: '提示',
-      content: that.data.message ,
-      success(res) {
-        if (res.confirm) {
-          
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
   },
   toscoreDetail(){
     wx.navigateTo({
@@ -328,7 +280,7 @@ Page({
    */
   onShow: function () {
     this.start()
-    this.getuserinfotxt() 
+    // this.getuserinfotxt() 
   },
 
   /**

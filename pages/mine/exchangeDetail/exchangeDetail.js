@@ -23,14 +23,14 @@ Page({
     let data = {
       openid: wx.getStorageSync('openId'),
       pageNo: 1,
-      pageSize: 10
+      pageSize: 12
     }
     app.questUrl('jeecg-boot/wechat/integralData/getUsedIntegralData', 'post', data).then(function (res) {
       console.log(res)
       if (res.data.code === 200) {
         that.setData({
           exchangelist: res.data.result.records,
-          isupdate: res.data.result.pages - res.data.result.current,
+          isupdate: !(res.data.result.pages - res.data.result.current),
           page: res.data.result.current
         })
       }
@@ -52,7 +52,7 @@ Page({
       if (res.data.code === 200) {
         that.setData({
           exchangelist: exchangelist.concat(res.data.result.records),
-          isupdate: res.data.result.pages - res.data.result.current,
+          isupdate: !(res.data.result.pages - res.data.result.current),
           page: res.data.result.current + 1,
           loadingshow: false
         })
@@ -103,7 +103,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if (this.data.isupdate) {
+    if (!this.data.isupdate) {
       this.update()
     }
 

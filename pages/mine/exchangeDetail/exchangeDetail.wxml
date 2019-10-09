@@ -1,5 +1,5 @@
 <!--pages/mine/exchangeDetail/exchangeDetail.wxml-->
-<view>
+<view wx:if='{{exchangelist}}'>
   <view wx:for='{{exchangelist}}' wx:key='index' class="flex item">
     <view class="itemleft">
       <view class="remark">{{item.remark}}</view>
@@ -11,5 +11,8 @@
     </view>
   </view>
   <view class="loading" wx:if='{{loadingshow}}'>加载中...</view>
-  <view class="bot" wx:if='{{!isupdate}}'>--- 我是有底线的 ---</view>
+  <view class="bot" wx:if='{{isupdate}}'>--- 我是有底线的 ---</view>
+</view>
+<view class="nodata" wx:else='{{exchangelist}}'>
+  --- 您还没有兑换记录哦 ---
 </view>

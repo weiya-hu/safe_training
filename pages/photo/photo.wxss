@@ -31,7 +31,7 @@
 .nodataimg{width:50%;margin: 0 auto;}
 .nodatatxt{text-align: center;font-size: 32rpx;color: #999;margin-top: 30rpx;}
 .bot view{width: 100%;text-align: center;color: #999;font-size: 24rpx;padding: 10rpx 0;}
-.nologin{text-align: center;text-decoration: underline;color:#55B836 ;margin-top: 100rpx;}
+.nologin{text-align: center;color:#999 ;margin-top: 100rpx;}
 
 
 /* 授权框样式 */

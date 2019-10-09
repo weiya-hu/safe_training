@@ -8,3 +8,4 @@
 .intg1{color: #000;font-weight: bold}
 .surplus{color: #aaa;font-size: 24rpx;margin-top: 10rpx;}
 .loading,.bot{font-size: 26rpx;color: #aaa;text-align: center;margin: 10rpx 0;}
+.nodata{text-align: center;color: #999;font-size: 32rpx;padding: 100rpx;}

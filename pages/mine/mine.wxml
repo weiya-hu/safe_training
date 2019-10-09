@@ -4,10 +4,10 @@
     <view class='userimg fleximg'>
       <image mode='widthFix'  class="userinfo-avatar" src="{{userInfo.avatarUrl?userInfo.avatarUrl:'../../images/usertx.jpg'}}"></image>
     </view>
-    <view class='name' wx:if='{{userinfotxt.realname}}'>{{userinfotxt.realname}}</view>
-    <view class='name fleximg' wx:else='{{userinfotxt.realname}}'>您还没有登录？去<view class="loginbtn" bindtap="loginshow">登录</view></view> 
+    <view class='name' wx:if='{{islogin}}'>{{userinfotxt.realname}}</view>
+    <view class='name fleximg' wx:else='{{islogin}}'>您还没有登录？登录后才能操作积分，去<view class="loginbtn" bindtap="loginshow">登录</view></view> 
   </view>
-  <view class='score flex scores'>
+  <view class='score flex scores' wx:if='{{islogin}}'>
     <view class='flexl'>
       <view class='scoreimg fleximg'>
         <image mode='widthFix'  class="userinfo-avatar" src="../../images/score.png"></image>
@@ -32,7 +32,7 @@
       </view>
     </view>
   </view>
-  <view class="down score">
+  <view class="down score" wx:if='{{islogin}}'>
     <view class="flex jfitem border_bot" bindtap="toscoreDetail">
       <view class="flexl">
         <view class="jfimg fleximg"><image mode="widthFix" class="imgflex" src="../../images/jfmx.png"></image> </view>
