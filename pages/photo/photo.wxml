@@ -26,7 +26,7 @@
         <view wx:for='{{type}}' wx:key='index' class="addressmditem"  catchtap="changetype"  data-item="{{item}}">{{item.name}}</view>
       </view>
     </view>
-    <view class='addimg fleximg' bindtap="toputphoto"><image mode='widthFix' src="../../images/add.png"></image></view>
+    <view class='addimg fleximg' bindtap="toputphoto" wx:if="{{isExamine==='no'}}"><image mode='widthFix' src="../../images/add.png"></image></view>
   </view>
   <view class='cont' wx:if='{{datashow==1}}'>
     <view wx:for='{{photolist}}' wx:key='index' class="contentitem">

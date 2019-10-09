@@ -32,8 +32,7 @@ Page({
     console.log(openId)
     if (openId){
       this.setData({
-        openId: openId,
-        islogin:wx.getStorageSync('islogin')
+        openId: openId
       })
     }else{
       wx.login({
@@ -59,7 +58,8 @@ Page({
     let userinfotxt = wx.getStorageSync('userinfotxt')
     if(userinfotxt){
       this.setData({
-        userinfotxt: userinfotxt
+        userinfotxt: userinfotxt,
+        islogin: wx.getStorageSync('islogin')
       })
     }
   },

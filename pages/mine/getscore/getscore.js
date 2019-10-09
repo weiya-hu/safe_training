@@ -32,9 +32,13 @@ Page({
     })
   },
   toputphoto(){
-    wx.navigateTo({
-      url: '../../photo/putphoto/putphoto',
-    })
+    let isExamine = wx.getStorageSync('isExamine')
+    if (isExamine === 'no'){
+      wx.navigateTo({
+        url: '../../photo/putphoto/putphoto',
+      })
+    }
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
