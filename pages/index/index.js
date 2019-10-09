@@ -17,11 +17,7 @@ Page({
     study: [],
     studyres: '',
     type:'',//选择答题还是学习
-    yzm:'获取验证码',
-    time: '60',
-    yzmswitch: true,
-    phonenum: '',
-    isyzm:false,//是否成功获取验证码
+    
 
   },
   onLoad: function () {
@@ -36,7 +32,8 @@ Page({
     console.log(openId)
     if (openId){
       this.setData({
-        openId: openId
+        openId: openId,
+        islogin:wx.getStorageSync('islogin')
       })
     }else{
       wx.login({
@@ -48,7 +45,8 @@ Page({
             console.log(res)
             wx.setStorageSync('openId', res.data.result.openid)
             that.setData({
-              openId: res.data.result.openid
+              openId: res.data.result.openid,
+              islogin: wx.getStorageSync('islogin')
             })
           })
         }

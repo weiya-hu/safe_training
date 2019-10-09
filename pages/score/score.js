@@ -40,6 +40,9 @@ Page({
       app.questUrl('jeecg-boot/wechat/question/postPaper', 'post', data).then(function (res) {
         console.log(res)
         if (res.data.success == true) {
+          wx.showModal({
+            content: res.data.message
+          })
           var scores = [], resscores = res.data.result.tureAndFalseArr.split(',');
           for (var i = 0, lth = res.data.result.questionSize; i < lth; i++) {
             if (resscores[i]) {

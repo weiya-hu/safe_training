@@ -13,7 +13,7 @@
       </swiper-item>
     </swiper>
   </view>
-  <view class='usertxt flex' wx:if='{{userinfotxt}}'>
+  <view class='usertxt flex' wx:if='{{islogin}}'>
     <view class="gs">您所属：{{userinfotxt.area}}</view>
     <!-- <view>工种：{{userinfotxt.team}}</view> -->
   </view>
