@@ -20,8 +20,8 @@ Page({
     datashow: 0,//内容数据是否显示，0都不显示，1显示数据，2显示没有数据图片
     imageupdate:true,//图片预览后页面不刷新
     nomoreshow:false,//没有更多是否显示
-    imgload:[],
-    isExamine:''
+    imgloadsuccess:[],
+    isExamine:''//为了通过审核加的，返回no才正常显示页面+号
   },
   /**
    * 生命周期函数--监听页面加载
@@ -72,13 +72,22 @@ Page({
         console.log(list)
         //查看list的长度是否大于0，作为有无内容判断依据,datashow==1为list内容，2为没有内容
         var datashow = that.data.datashow;
-        list.length > 0 ? datashow = 1 : datashow = 2
+        list.length > 0 ? datashow = 1 : datashow = 2;
+        //设置默认图片显示
+        var imgloadsuccess = that.data.imgloadsuccess;
+        for (let i = 0; i < list.length; i++) {
+          imgloadsuccess.push([])
+          for (let j = 0; j < list[i].image.length;j++){
+            imgloadsuccess[i][j] = true
+          }
+        }
         that.setData({
           photolist: list,
           datashow: datashow,
           imageupdate: true,
           noempowor: false,
-          isExamine: res.data.isExamine
+          isExamine: res.data.isExamine,
+          imgloadsuccess: imgloadsuccess
         })
         wx.setStorageSync('isExamine', res.data.isExamine)
         //回到顶部
@@ -214,27 +223,18 @@ Page({
     })
   },
   pullbackson(){},
-  //图片加载回调
+  //图片加载回调,设置默认图片显示
   imageLoad(e) {
     console.log(e)
-    let imgload=this.data.imgload
-    let originalWidth = e.detail.width;
-    let originalHeight = e.detail.height;
-    let idx = e.currentTarget.dataset.idx, imgarr = [];
-    if (originalWidth <= originalHeight) {
-      imgarr[idx] = true
-    } else {
-      imgarr[idx] = false
-    }
-    if (originalWidth) { imgload[idx] = 1}
-    
+    var imgloadsuccess = this.data.imgloadsuccess, idxs = e.currentTarget.dataset;
+    imgloadsuccess[idxs.idx][idxs.idex] = false
     this.setData({
-      imgstyle: imgarr,
-      imgload: imgload
-    })  
+      imgloadsuccess: imgloadsuccess
+    })
   },
   //点击预览图片s
   previewimg(e) {
+    
     let item = e.currentTarget.dataset.item, itempre = e.currentTarget.dataset.itempre, tempFilePaths = itempre.image;
     console.log(item)
     wx.previewImage({

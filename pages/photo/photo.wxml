@@ -28,8 +28,9 @@
     </view>
     <view class='addimg fleximg' bindtap="toputphoto" wx:if="{{isExamine==='no'}}"><image mode='widthFix' src="../../images/add.png"></image></view>
   </view>
+  <!-- datashow==1控制为有数据，显示数据 -->
   <view class='cont' wx:if='{{datashow==1}}'>
-    <view wx:for='{{photolist}}' wx:key='index' class="contentitem">
+    <view wx:for='{{photolist}}' wx:key='idx' wx:for-index='idx' class="contentitem">
       <view class='usertximg fleximg'><image mode='widthFix' src="{{item.userimg?item.userimg:'../../images/usertx.jpg'}}"></image></view>
       <view class="itemright">
         <view class="flex itemtop">
@@ -39,8 +40,8 @@
         <text decode='true' space='nbsp' class="content">{{item.content}}</text>
         <view class="images">
           <view class='photoimg fleximg' wx:for='{{item.image}}' wx:for-item="items" wx:key='index' bindtap='previewimg' data-item='{{items}}' data-itempre="{{item}}">
-            <image lazy-load='true' mode='aspectFit' src="{{imgload[index]?items:'../../images/default.png'}}" bindload="imageLoad" data-idx='{{index}}' class="{{imgstyle[index]?'width':'height'}}" ></image>
-            <!-- <image lazy-load='true' mode='aspectFit' src="../../images/default.png" wx:else='{{imgload[index]}}'></image> -->
+            <image lazy-load='true' mode='aspectFit' src="{{items}}" bindload="imageLoad" data-idx='{{idx}}' data-idex="{{index}}" class="imageload"></image>
+            <!-- <image class="defaultimg" mode='aspectFit' src="../../images/default.png" wx:if='{{imgloadsuccess[idx][index]}}'></image> -->
           </view>
         </view>
         <view class="flex itembot">
@@ -53,6 +54,7 @@
       <view wx:if='nomoreshow'>-------到底了-------</view>
     </view>
   </view>
+  <!-- datashow==2没有数据，显示nodata状态 -->
   <view wx:if='{{datashow==2}}' class="nodata">
     <view class='nodataimg fleximg'><image mode='widthFix' src="../../images/nodata3.png"></image></view>
     <view class='nodatatxt'>没有搜索到内容</view>

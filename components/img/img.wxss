@@ -1,0 +1,22 @@
+/* component/img/img.wxss */
+.imgbox,image{
+  width:100%;
+  height:100%;
+}
+.imgbox{
+  position:relative;
+}
+.default-img-box{
+  position:absolute;
+  z-index:1;
+  left:0;
+  top:0;
+  display:flex;
+  align-items: center;
+  justify-content:center; 
+  width:100%;
+  height:100%;
+}
+.default-img-box image{
+  /* width:45%; */
+}

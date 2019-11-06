@@ -17,7 +17,7 @@ Page({
     study: [],
     studyres: '',
     type:'',//选择答题还是学习
-    
+    numlist:{},//答题学习剩余次数
 
   },
   onLoad: function () {
@@ -97,7 +97,19 @@ Page({
     })
    
   },
-
+  //获取答题学习今日剩余次数
+  getnum(){
+    let data = {
+      openid: wx.getStorageSync('openId')
+    }, that = this;
+    app.questUrl('jeecg-boot/wechat/getUserLimitSize', 'post', data).then(function (res) {
+      console.log(res)
+      that.setData({
+        numlist: res.data.result
+      })
+      console.log(that.data.numlist)
+    })
+  },
   bindexerciseChange(e){
     console.log(e)
     let val=e.detail.value;
@@ -116,8 +128,7 @@ Page({
       wx.navigateTo({
         url: '../study/study?id=' + this.data.studyres[val].id,
       })
-    }
-    
+    }  
   },
   tomine(){
     wx.switchTab({
@@ -129,5 +140,6 @@ Page({
    */
   onShow: function () {
     this.getuserinfotxt()
+    this.getnum()
   },
 })

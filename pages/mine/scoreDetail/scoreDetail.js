@@ -31,7 +31,7 @@ Page({
         that.setData({
           scorelist: res.data.result.records,
           isupdate: !(res.data.result.pages - res.data.result.current),
-          page: res.data.result.current
+          page: res.data.result.current+1
         })
       }
     })
@@ -44,7 +44,7 @@ Page({
     let data = {
       openid: wx.getStorageSync('openId'),
       pageNo: this.data.page,
-      pageSize: 10};
+      pageSize: 12};
     let scorelist = this.data.scorelist,that=this;
     app.questUrl('jeecg-boot/wechat/integralData/getUserIntegralData', 'post', data).then(function (res) {
       console.log(res)

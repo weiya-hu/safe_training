@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <view>
-    <swiper bindtap='ruleshow' circular='true' class='swiper' indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+    <swiper bindtap='ruleshow' circular='true' class='swiper' indicator-dots="true" autoplay="true" interval="6000" duration="1000">
       <swiper-item>
         <image src="../../images/swipe9.jpg" class="slide-image" width="355" height="150" mode='widthFix'/>
       </swiper-item>
@@ -12,6 +12,16 @@
         <image src="../../images/swipe3.gif" class="slide-image" width="355" height="150" mode='widthFix'/>
       </swiper-item>
     </swiper>
+  </view>
+  <view class="flexl numlist">
+    <view class="ramainflex">
+      <view class="ramainimg fleximg"><image mode="widthFix" src="../../images/dati2.png"></image> </view>
+      <view class="fleximg numtxt">今日答题还剩余<view>{{numlist.questionSurplusSize}}</view>次</view>
+    </view>
+    <!-- <view class="ramainflex">
+      <view class="ramainimg fleximg ramainimgright"><image mode="widthFix" src="../../images/photoget.png"></image> </view>
+      <view class="fleximg numtxt">今日随手拍还剩余<view>{{numlist.sspSurplusSize}}</view>次</view>
+    </view> -->
   </view>
   <view class='usertxt flex' wx:if='{{islogin}}'>
     <view class="gs">您所属：{{userinfotxt.area}}</view>

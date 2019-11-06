@@ -76,25 +76,37 @@ Page({
   },
   //兑换
   exchange(){
-    let value=this.data.value+'',that=this;
-    let data={
-      openid:wx.getStorageSync('openId'),
-      amount:value
-    }
-    app.questUrl('jeecg-boot/wechat/pay','post',data).then(function(res){
-      console.log(res)
-      if(res.data.code==200){
-        wx.showModal({
-          content: res.data.message,
-        })
-      }
-      if(res.data.success==true){
-        that.setData({
-          money:that.data.money-value,
-          value:''
-        })
+    let that=this
+    wx.showModal({
+      title: '提示',
+      content: '是否确认兑换',
+      success(res) {
+        if (res.confirm) {
+          let value = that.data.value + '';
+          let data = {
+            openid: wx.getStorageSync('openId'),
+            amount: value
+          }
+          app.questUrl('jeecg-boot/wechat/pay', 'post', data).then(function (res) {
+            console.log(res)
+            if (res.data.code == 200) {
+              wx.showModal({
+                content: res.data.message,
+              })
+            }
+            if (res.data.success == true) {
+              that.setData({
+                money: that.data.money - value,
+                value: ''
+              })
+            }
+          })
+        } else if (res.cancel) {
+
+        }
       }
     })
+    
   },
   //全部兑换
   allexchange() {

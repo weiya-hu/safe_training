@@ -1,0 +1,7 @@
+<!--component/img/img.wxml-->
+<view class="imgbox" data-show="{{showDefault}}">
+  <view class="default-img-box" style="background:#{{defaultColor || dColor}}" wx:if="{{!src || showDefault}}">
+    <image class="default-img" src="{{default?default:'../../images/default.png'}}" style="width:{{defaultWidth}}rpx;height:{{defaultHeight}}rpx;" ></image>
+  </view>
+  <image class="current-img" wx:if="{{src}}" src="{{src}}" bindload="load" binderror="error" mode="{{mode}}" lazy-load="{{lazy}}" data-src="{{src}}"></image>
+</view>

@@ -46,6 +46,13 @@
 .empower{position: absolute;width: 100%;height: 100%;top: 0;left: 0;}
 .bottom_picker{background:#1AAD19; color: white;text-align: center;}
 .bottompre{text-align: center;}
+.ramainflex{display: flex;justify-content: center;align-items: center;flex-wrap:nowrap;
+  width: 100%;}
+
+.ramainimg{width: 40rpx;height:40rpx;font-size: 20rpx;margin-right: 5rpx;}
+.numlist{color: #512C56;padding: 15rpx;border-bottom:1px solid #f1f3f5; }
+.numtxt{font-size: 28rpx;}
+.numtxt view{font-size: 30rpx; font-weight: bold;color: rgba(239,106,106,0.8);}
 @keyframes animtdh
 {
 from {transform: scale(0.9)}

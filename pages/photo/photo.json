@@ -4,5 +4,8 @@
   "navigationBarTitleText": "随手拍",
   "navigationBarTextStyle": "white",
   "enablePullDownRefresh": true,
-  "onReachBottomDistance": 60
+  "onReachBottomDistance": 60,
+  "usingComponents": {
+    "img": "../../components/img/img"
+  }
 }

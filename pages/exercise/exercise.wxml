@@ -10,6 +10,7 @@
       <view wx:for='{{titles[idx].answer}}' wx:key='index' bindtap='checkanswer' data-answer='{{index}}' 
       class="answers {{answernum==index?'answer':''}} {{key==index?'right':''}}">{{item}}</view>
     </view>
+    <view class="next" bindtap="next">下一题</view>
     <view class='toscore' bindtap='toscore'>交卷</view>
   </view>
   

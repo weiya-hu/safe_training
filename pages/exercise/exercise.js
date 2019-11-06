@@ -58,53 +58,99 @@ Page({
         key: this.data.titles[this.data.idx].result,
         checkanswerFlag: false
       })
-      var data = {
-        questionTypeId: this.data.questionTypeId,
-        questionId: this.data.titles[this.data.idx].id,
-        openid: wx.getStorageSync('openId'),
-        answerResult: num
-      }
-      app.questUrl_noloading('jeecg-boot/wechat/question/getUserAnswer', 'post', data).then(function (res) {
-        console.log(res)
-        if (res.data.success == true) {
-          if (idx < length) {
-            setTimeout(() => {
-              that.setData({
-                answernum: 5,
-                key: 5,
-                idx: that.data.idx + 1,
-                checkanswerFlag: true
-              })
-            }, 800)
-          } else {
-            setTimeout(() => {
-              // that.setData({
-              //   idx: that.data.idx + 1
-              // })
-              that.toscore()
-              that.setData({
-                checkanswerFlag: true
-              })
-            }, 800)
-            // that.toscore(that.data.questionTypeId)
-          }
-        }
-      })
+      // var data = {
+      //   questionTypeId: this.data.questionTypeId,
+      //   questionId: this.data.titles[this.data.idx].id,
+      //   openid: wx.getStorageSync('openId'),
+      //   answerResult: num
+      // }
+      // app.questUrl_noloading('jeecg-boot/wechat/question/getUserAnswer', 'post', data).then(function (res) {
+      //   console.log(res)
+      //   if (res.data.success == true) {
+      //     if (idx < length) {
+      //       setTimeout(() => {
+      //         that.setData({
+      //           answernum: 5,
+      //           key: 5,
+      //           idx: that.data.idx + 1,
+      //           checkanswerFlag: true
+      //         })
+      //       }, 800)
+      //     } else {
+      //       setTimeout(() => {
+      //         // that.setData({
+      //         //   idx: that.data.idx + 1
+      //         // })
+      //         that.toscore()
+      //         that.setData({
+      //           checkanswerFlag: true
+      //         })
+      //       }, 800)
+      //       // that.toscore(that.data.questionTypeId)
+      //     }
+      //   }
+      // })
     }
     
   },
+  //下一题
+  next(){
+    var idx = this.data.idx + 1, length = this.data.titles.length, that = this;
+    var data = {
+      questionTypeId: this.data.questionTypeId,
+      questionId: this.data.titles[this.data.idx].id,
+      openid: wx.getStorageSync('openId'),
+      answerResult: this.data.answernum
+    };
+    app.questUrl_noloading('jeecg-boot/wechat/question/getUserAnswer', 'post', data).then(function (res) {
+      console.log(res)
+      if (res.data.success == true) {
+        if (idx < length) {
+          // setTimeout(() => {
+            that.setData({
+              answernum: 5,
+              key: 5,
+              idx: that.data.idx + 1,
+              checkanswerFlag: true
+            })
+          // }, 800)
+        } else {
+          // setTimeout(() => {
+            // that.setData({
+            //   idx: that.data.idx + 1
+            // })
+            that.toscore()
+            that.setData({
+              checkanswerFlag: true
+            })
+          // }, 800)
+          // that.toscore(that.data.questionTypeId)
+        }
+      }
+    })
+  },
   toscore(){
     var that=this,idx=this.data.idx,url='';
-    
-    if(idx){
-      url='../score/score?questionTypeId=' + this.data.questionTypeId
-    }else{
-      console.log(idx)
-      url= '../score/score?questionTypeId=' + this.data.questionTypeId + '&num=' + this.data.totalnum
-    }
-    wx.navigateTo({
-      url: url,
+    wx.showModal({
+      title: '提示',
+      content: '是否确认交卷',
+      success(res) {
+        if (res.confirm) {
+          if (idx) {
+            url = '../score/score?questionTypeId=' + that.data.questionTypeId
+          } else {
+            console.log(idx)
+            url = '../score/score?questionTypeId=' + that.data.questionTypeId + '&num=' + that.data.totalnum
+          }
+          wx.navigateTo({
+            url: url,
+          })
+        } else if (res.cancel) {
+          
+        }
+      }
     })
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
