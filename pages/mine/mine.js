@@ -9,7 +9,7 @@ Page({
     userInfo:{},
     userinfotxt:{},
     height:'',
-    integral:'',
+    money:'',
     message:'暂无正在兑换的积分',
     phonenumber:'',
     exchangeshow:false,
@@ -31,7 +31,8 @@ Page({
     yzmswitch: true,
     phonenum: '',
     isyzm: false,//是否成功获取验证码
-    userInfo:''
+    userInfo:'',
+    isExamine: ''
   },
 
   /**
@@ -42,6 +43,7 @@ Page({
     this.setData({
       userInfo: wx.getStorageSync('userInfo'),
       islogin:wx.getStorageSync('islogin'),
+      isExamine: wx.getStorageSync('isExamine')
     })
   },
   height() {//获取底部高度
@@ -64,7 +66,7 @@ Page({
       console.log(res)
       if(res.data.code===200){
         that.setData({
-          integral: res.data.result.surplus,
+          money: res.data.result.money,
           phonenumber: res.data.result.phone,
           userinfotxt: res.data.result.userInfo
         })

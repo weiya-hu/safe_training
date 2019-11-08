@@ -13,10 +13,10 @@
         <image mode='widthFix'  class="userinfo-avatar" src="../../images/score.png"></image>
       </view>
       <view class='scoretxt flexl'>
-        <view>积分:{{integral}}</view>
+        <view>可提现余额: ￥{{money}}元</view>
       </view>
     </view>
-    <view class='tix' bindtap='change'>兑换</view>
+    <view class='tix' bindtap='change'>提现</view>
     <view class='changesus' wx:if='{{exchangeshow}}'  catchtap='change'>
       <view class='changesusitem'   catchtap='changee'>
         <view class='phones flex'> <view>充值号码:{{phonenumber}}</view><view>积分:{{integral}}</view></view>
@@ -47,7 +47,7 @@
       </view>
       <view class="nextimg fleximg"><image mode="widthFix" src="../../images/next.png"></image> </view>
     </view>
-    <view class="flex jfitem" bindtap="togetscore">
+    <view class="flex jfitem" bindtap="togetscore" wx:if="{{isExamine==='no'}}">
       <view class="flexl">
         <view class="jfimg fleximg"><image mode="widthFix" class="imgflex" src="../../images/getjf.png"></image> </view>
         <view class='jftxt'>获取积分</view>

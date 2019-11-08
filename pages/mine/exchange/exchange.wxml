@@ -3,25 +3,25 @@
   <view class="cont">
     <view class="method">到账方式：微信零钱</view>
     <view class="cash">
-      <view class="cashtxt">兑换金额</view>
+      <view class="cashtxt">提现金额</view>
       <view class="flexl money">
         <view>￥</view>
         <input type="number" focus="true" bindinput='inputchange' value='{{value}}'></input>
         <!-- <view>/10</view> -->
       </view>
       <view class="flexl yue" wx:if='{{!isover}}'>
-        <view class="yuetxt">可兑换余额￥{{money}}，</view> 
-        <view class="allexchange" bindtap="allexchange">全部兑换</view> 
+        <view class="yuetxt">可提现余额￥{{money}}，</view> 
+        <view class="allexchange" bindtap="allexchange">全部提现</view> 
       </view>
-      <view wx:else='{{!isover}}' class="over yue">输入金额超过可兑换金额</view>
-      <view class="exchangefellbt" wx:if='{{!ischange}}'>兑换</view>
-      <view class="exchangebt" wx:else='{{!ischange}}' bindtap="exchange">兑换</view>
+      <view wx:else='{{!isover}}' class="over yue">输入金额超过可提现金额</view>
+      <view class="exchangefellbt" wx:if='{{!ischange}}'>提现</view>
+      <view class="exchangebt" wx:else='{{!ischange}}' bindtap="exchange">提现</view>
     </view> 
   </view>
   <view class='rule'>
-    <view>兑换规则：</view>
-    <view class="ruleflex"><view> 1、</view><view>满10元可兑换，一天兑换次数不能超过10次；</view></view>
-    <view class="ruleflex"><view> 2、</view><view>兑换申请后24小时内审核到账，具体到账时间以微信零钱到账时间为准；</view></view>
+    <view>提现规则：</view>
+    <view class="ruleflex"><view> 1、</view><view>满10元可提现，一天提现次数不能超过10次；</view></view>
+    <view class="ruleflex"><view> 2、</view><view>提现申请后24小时内审核到账，具体到账时间以微信零钱到账时间为准；</view></view>
     <view class="ruleflex"><view> 3、</view><view>任何作弊行为都将对账号进行封禁；</view></view>
   </view>
 </view>

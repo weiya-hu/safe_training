@@ -32,12 +32,9 @@ Page({
     })
   },
   toputphoto(){
-    let isExamine = wx.getStorageSync('isExamine')
-    if (isExamine === 'no'){
-      wx.navigateTo({
-        url: '../../photo/putphoto/putphoto',
-      })
-    }
+    wx.navigateTo({
+      url: '../../photo/putphoto/putphoto',
+    })
     
   },
   /**

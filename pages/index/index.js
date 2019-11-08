@@ -107,6 +107,7 @@ Page({
       that.setData({
         numlist: res.data.result
       })
+      wx.setStorageSync('isExamine', res.data.isExamine)
       console.log(that.data.numlist)
     })
   },

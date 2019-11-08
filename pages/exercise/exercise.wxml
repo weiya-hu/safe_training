@@ -2,16 +2,30 @@
 <view class='exercise' style='height:{{height}}px'>
   <view class='titleitem'>
     <view class='titletop flex'>
-      <view  class='titletype'>单项选择</view>
+      <view wx:if='{{titles[idx].belong===0}}' class='titletype fleximg'><view class="topl"></view> 单项选择</view>
+      <view  wx:if='{{titles[idx].belong===1}}' class='titletype fleximg'><view class="topl"></view> 填空题</view>
       <view class='titlenum flexr'><view class='idx'>{{idx+1}}</view>/{{totalnum}}</view>
+      <view class="nexttitle">下一题</view>
     </view>
     <view class='title'>
       <view class='titletxt'>{{titles[idx].title}}</view>
-      <view wx:for='{{titles[idx].answer}}' wx:key='index' bindtap='checkanswer' data-answer='{{index}}' 
-      class="answers {{answernum==index?'answer':''}} {{key==index?'right':''}}">{{item}}</view>
+      <view wx:if='{{titles[idx].belong===0}}' wx:for='{{titles[idx].answer}}' wx:key='index' bindtap='checkanswer' data-answer='{{index}}' 
+      class="answers {{answernum==index?'answer':''}}">{{item}}</view>
+      <view wx:if='{{titles[idx].belong===1}}'>
+        <form bindsubmit="formSubmit">
+          <view class='content'>
+            <block wx:for="{{titles[idx].result.length}}" wx:key="item">
+              <input class='iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled  catchtap='Tap'></input>
+            </block>
+          </view>
+          <input name="password"  class='ipt' maxlength="{{Length}}" focus="{{isFocus}}" bindinput="Focus"  bindfocus='hj'></input>
+          <view>
+            <button class="btn-area" type='primary' disabled='{{disabled}}' formType="primary">下一步</button>
+          </view>
+        </form>
+      </view>
     </view>
-    <view class="next" bindtap="next">下一题</view>
-    <view class='toscore' bindtap='toscore'>交卷</view>
+    <!-- <view class="next" bindtap="next">下一题</view>
+    <view class='toscore' bindtap='toscore'>交卷</view> -->
   </view>
-  
 </view>

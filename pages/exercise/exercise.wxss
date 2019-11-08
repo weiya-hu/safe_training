@@ -1,12 +1,19 @@
 /* pages/exercise/exercise.wxss */
 .exercise{background: #ffffff;overflow: hidden}
-.answer{background: #EC635D;color:#ffffff;}
-.right{color:#ffffff;background: #1BD0BD}
-.titletop{padding: 20rpx;border-bottom: 1rpx solid #aaa;font-size: 30rpx;}
+.topl{width:8rpx;height: 40rpx;background:#B19B80;margin-right: 6rpx; }
+
+.right{color:#ffffff;background: #B19B80}
+.titletop{padding: 30rpx;border-bottom: 1rpx solid #aaa;font-size: 36rpx;}
 .titleitem{background: #ffffff;width:100%;margin: 10rpx auto}
-.titletxt{font-size: 32rpx;margin: 10rpx 0;}
-.idx{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color: #1BD0BD;font-weight: bold;font-size: 36rpx;margin-right: 6rpx}
+.titletxt{font-size: 40rpx;margin: 10rpx 0;margin-bottom: 100rpx;}
+.idx{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color: #B19B80;font-weight: bold;font-size: 46rpx;margin-right: 6rpx}
 .title{padding: 20rpx}
-.answers{margin: 10rpx 0;padding:15rpx ;border-radius: 40rpx;}
-.next{padding: 10rpx 100rpx;letter-spacing: 4px;font-size: 36rpx; color:#ffffff;background: #1BD0BD; border-radius: 40rpx;display: inline-block;position: fixed;bottom:300rpx;left: 50%;transform: translateX(-50%)}
-.toscore{padding: 10rpx 100rpx;letter-spacing: 4px;font-size: 36rpx; color:#ffffff;background: #1BD0BD; border-radius: 40rpx;display: inline-block;position: fixed;bottom: 100rpx;left: 50%;transform: translateX(-50%);font-weight: bold;}
+.answers{margin: 30rpx 0;padding:25rpx ;border: 1px solid #F2F3F5;border-radius: 10rpx;background: #FAFBFC}
+.answer{background: #F8F6F3;color:#B19B80;border: 1rpx solid #B19B80;font-weight: bold;}
+.next{padding: 10rpx 100rpx;letter-spacing: 4px;font-size: 36rpx; color:#ffffff;background: #B19B80; border-radius: 40rpx;display: inline-block;position: fixed;bottom:300rpx;left: 50%;transform: translateX(-50%)}
+.toscore{padding: 10rpx 100rpx;letter-spacing: 4px;font-size: 36rpx; color:#ffffff;background: #B19B80; border-radius: 40rpx;display: inline-block;position: fixed;bottom: 100rpx;left: 50%;transform: translateX(-50%);font-weight: bold;}
+.content{width: 660rpx;padding:0 45rpx;justify-content: space-around;align-items: center;margin-top: 100rpx;}
+.iptbox{width: 110rpx;height: 96rpx;border:1rpx solid #ddd;box-sizing: border-box;
+  display: inline-block;justify-content: center;align-items: center;text-align: center;}
+.ipt{width: 0;height: 0;}
+.btn-area{width: 80%;margin-top: 60rpx;}

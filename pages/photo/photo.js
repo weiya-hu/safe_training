@@ -21,7 +21,7 @@ Page({
     imageupdate:true,//图片预览后页面不刷新
     nomoreshow:false,//没有更多是否显示
     imgloadsuccess:[],
-    isExamine:''//为了通过审核加的，返回no才正常显示页面+号
+    isExamine:''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -39,11 +39,10 @@ Page({
       that.setData({
         address: res.data.result.address,
         type: res.data.result.type,
-        isExamine: res.data.isExamine
+        isExamine: wx.getStorageSync('isExamine')
       })
       wx.setStorageSync('address', res.data.result.address)
       wx.setStorageSync('type', res.data.result.type)
-      wx.setStorageSync('isExamine', res.data.isExamine)
     })
   },
   update(){
@@ -86,10 +85,8 @@ Page({
           datashow: datashow,
           imageupdate: true,
           noempowor: false,
-          isExamine: res.data.isExamine,
           imgloadsuccess: imgloadsuccess
         })
-        wx.setStorageSync('isExamine', res.data.isExamine)
         //回到顶部
         wx.pageScrollTo({
           scrollTop: 0,

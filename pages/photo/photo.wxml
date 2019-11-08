@@ -31,10 +31,10 @@
   <!-- datashow==1控制为有数据，显示数据 -->
   <view class='cont' wx:if='{{datashow==1}}'>
     <view wx:for='{{photolist}}' wx:key='idx' wx:for-index='idx' class="contentitem">
-      <view class='usertximg fleximg'><image mode='widthFix' src="{{item.userimg?item.userimg:'../../images/usertx.jpg'}}"></image></view>
+      <view class='usertximg fleximg'><image mode='widthFix' src="../../images/usertx.jpg"></image></view>
       <view class="itemright">
         <view class="flex itemtop">
-          <view class="realname">{{item.realname}}</view>
+          <view class="realname">{{item.showname}}</view>
           <view class="typename">{{item.typeName}}</view>
         </view>
         <text decode='true' space='nbsp' class="content">{{item.content}}</text>
