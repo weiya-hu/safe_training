@@ -13,16 +13,16 @@
       </swiper-item>
     </swiper>
   </view>
-  <view class="flexl numlist">
+  <!-- <view class="flexl numlist">
     <view class="ramainflex">
       <view class="ramainimg fleximg"><image mode="widthFix" src="../../images/dati2.png"></image> </view>
       <view class="fleximg numtxt">今日答题还剩余<view>{{numlist.questionSurplusSize}}</view>次</view>
-    </view>
+    </view> -->
     <!-- <view class="ramainflex">
       <view class="ramainimg fleximg ramainimgright"><image mode="widthFix" src="../../images/photoget.png"></image> </view>
       <view class="fleximg numtxt">今日随手拍还剩余<view>{{numlist.sspSurplusSize}}</view>次</view>
     </view> -->
-  </view>
+  <!-- </view> -->
   <view class='usertxt flex' wx:if='{{islogin}}'>
     <view class="gs">您所属：{{userinfotxt.area}}</view>
     <!-- <view>工种：{{userinfotxt.team}}</view> -->

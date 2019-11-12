@@ -41,7 +41,7 @@ Page({
     var that = this;
     var pages = getCurrentPages()    //获取加载的页面
     var id = pages[pages.length - 1].options.id    //获取当前页面的对象
-    var data = { id: id };
+    var data = { id: id, openid: wx.getStorageSync('openId')};
     app.questUrl('jeecg-boot/wechat/learningmaterials/getByPid', 'post', data).then(function (res) {
       console.log(res)
       that.setData({

@@ -1,31 +1,72 @@
 <!--pages/exercise/exercise.wxml-->
-<view class='exercise' style='height:{{height}}px'>
+<scroll-view scroll-y='true' class='exercise' style='height:{{height}}px'>
   <view class='titleitem'>
     <view class='titletop flex'>
       <view wx:if='{{titles[idx].belong===0}}' class='titletype fleximg'><view class="topl"></view> 单项选择</view>
       <view  wx:if='{{titles[idx].belong===1}}' class='titletype fleximg'><view class="topl"></view> 填空题</view>
       <view class='titlenum flexr'><view class='idx'>{{idx+1}}</view>/{{totalnum}}</view>
-      <view class="nexttitle">下一题</view>
+      <view class="nexttitle fleximg" wx:if="{{nexttxt!==''}}" bindtap="tonext">{{nexttxt}}</view>
     </view>
-    <view class='title'>
+    <view class='title'>  
+      <!-- 题目 -->
       <view class='titletxt'>{{titles[idx].title}}</view>
+      <!-- 选择题选择项 -->
       <view wx:if='{{titles[idx].belong===0}}' wx:for='{{titles[idx].answer}}' wx:key='index' bindtap='checkanswer' data-answer='{{index}}' 
-      class="answers {{answernum==index?'answer':''}}">{{item}}</view>
+      class="answers {{answernum==index?'answer':''}} {{selectkey==index?'isFillinRight':''}} {{answernum==index && isFillinRight===2?'isFillinFalse':''}}">{{item}}</view>
+      <!-- 填空题填空部分 -->
       <view wx:if='{{titles[idx].belong===1}}'>
         <form bindsubmit="formSubmit">
           <view class='content'>
             <block wx:for="{{titles[idx].result.length}}" wx:key="item">
-              <input class='iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled  catchtap='Tap'></input>
+              <!-- 输入框的下一位要有框高亮，输入框输入到最后一位时是最后一位有框高亮，catchtap事件设置真实输入框获取焦点 -->
+              <input class="iptbox {{isFocus && Value.length==index?'bord':''}} {{isFocus && Value.length==titles[idx].result.length && index==Value.length-1?'bord':'' }} {{isFillinRight===1?'isFillinRight':isFillinRight===2?'isFillinFalse':''}}" value="{{Value.length>=index+1?Value[index]:''}}" disabled  catchtap='Tap'></input>
             </block>
           </view>
-          <input name="password"  class='ipt' maxlength="{{Length}}" focus="{{isFocus}}" bindinput="Focus"  bindfocus='hj'></input>
-          <view>
-            <button class="btn-area" type='primary' disabled='{{disabled}}' formType="primary">下一步</button>
-          </view>
+          <!-- 点击显示输入框有框高亮只需设置真实输入框maxlength就可以 -->
+          <input name="password"  class='ipt' maxlength="{{titles[idx].result.length}}" focus="{{isFocus}}" bindinput="Focus" data-length="{{titles[idx].result.length}}"  bindblur='blur'></input>
+          
         </form>
+      </view>
+      
+    </view>
+    <!-- 难易标识，是否做过标识 -->
+      <view class="flexl difficultypre">
+        <view class="difficulty">{{titles[idx].difficulty}}</view>
+        <view class="difficulty" wx:if='{{titles[idx].state===0}}'>没做过</view>
+        <view class="difficulty onceright" wx:if='{{titles[idx].state===1}}'>上次做对过</view>
+        <view class="difficulty oncefalse" wx:if='{{titles[idx].state===2}}'>上次做错过</view>
+      </view>
+    <!-- 查看提示模块 -->
+      <view class="tip flexr" wx:if="{{nexttxt!=='下一题' && titles[idx].belong===1}}">
+        <view bindtap="tipblockshow" class="fleximg">            
+          <view class='tipsimg fleximg'><image mode='widthFix' src="../../images/tips.png"></image></view>
+          <view class='tipstxt'>查看提示</view>
+        </view>
+      </view>
+      <!-- 答案解析模块 -->
+      <view class="answerAnalysis" wx:if="{{nexttxt==='下一题' || nexttxt==='交卷'}}">
+        <view class="answerAnalysisTop flexl">
+          <view class="topl"></view>
+          <view class="answerAnalysisTxt">答案解析</view>
+        </view>
+        <view class="rightAnswer" wx:if='{{titles[idx].belong===1}}'>正确答案：{{titles[idx].result}}</view>
+        <view class="rightAnswer flexl" wx:if='{{titles[idx].belong===0}}'>正确答案：
+          <view wx:if='{{titles[idx].result==0}}'>A</view>
+          <view wx:if='{{titles[idx].result==1}}'>B</view>
+          <view wx:if='{{titles[idx].result==2}}'>C</view>
+          <view wx:if='{{titles[idx].result==3}}'>D</view>
+        </view>
+        <view class="answerTips">{{titles[idx].tips}}</view>
+      </view>
+    <view class="tipblock" style='height:{{height}}px' wx:if='{{tipblockshow}}' bindtap="tipblockshow">
+      <view class="tipcontent" catchtap="cha">
+        <view class="tiptop">提示
+          <view class='chaimg fleximg' bindtap="tipblockshow"><image mode='widthFix' src="../../images/cha2.png"></image></view>
+        </view>
+        <view class="tiptxt">{{titles[idx].tips}}</view>
       </view>
     </view>
     <!-- <view class="next" bindtap="next">下一题</view>
     <view class='toscore' bindtap='toscore'>交卷</view> -->
   </view>
-</view>
+</scroll-view>
