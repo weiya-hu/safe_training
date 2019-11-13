@@ -13,8 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this;
-    this.start()
+    
     // wx.downloadFile({ 
     //   url: 'https://kaijin.zhoumc.cn/jeecg-boot/generic/web/viewer.html?file=https://kaijin.zhoumc.cn/jeecg-boot/sys/common/view/files/20190725/%E9%9A%A7%E9%81%93%E5%AE%89%E5%85%A8%E6%95%99%E8%82%B2%E5%9F%B9%E8%AE%AD%E8%B5%84%E6%96%99_1564037943780.pdf', 
     //   success: function (res) { 
@@ -68,7 +67,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.start()
   },
 
   /**

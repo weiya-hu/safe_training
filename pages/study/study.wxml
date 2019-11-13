@@ -1,8 +1,13 @@
 <!--pages/study/study.wxml-->
 <view>
-  <view wx:for='{{studylist}}' wx:key='index' bindtap='tostudydetail' data-pdfitem='{{item}}' class='flexl studyitem'>
-    <view class='fleximg pdfimg'><image mode='widthFix' src='../../images/pdf.png'></image></view>
-    <view class='studytxt'>{{item.name}}</view>
+  <view wx:for='{{studylist}}' wx:key='index' bindtap='tostudydetail' data-pdfitem='{{item}}' class="out">
+    <view  class='flexl studyitem'>
+      <view class='fleximg pdfimg'><image mode='widthFix' src='../../images/pdf.png'></image></view>
+      <view class="studytxt {{item.state===1?'titlestudied':''}}">{{item.name}}</view>
+      <view wx:if='{{item.state===1}}' class="studied">已学习</view>
+      <view wx:if='{{item.state===0}}' class="unstudy">未学习</view>
+    </view>
+    
   </view>
 </view>
 

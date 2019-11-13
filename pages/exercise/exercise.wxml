@@ -23,7 +23,7 @@
             </block>
           </view>
           <!-- 点击显示输入框有框高亮只需设置真实输入框maxlength就可以 -->
-          <input name="password"  class='ipt' maxlength="{{titles[idx].result.length}}" focus="{{isFocus}}" bindinput="Focus" data-length="{{titles[idx].result.length}}"  bindblur='blur'></input>
+          <input name="password" type="text"  class='ipt' maxlength="{{titles[idx].result.length}}" focus="{{isFocus}}" bindinput="Focus" data-length="{{titles[idx].result.length}}"  bindblur='blur' value='{{trueIptValue}}'></input>
           
         </form>
       </view>

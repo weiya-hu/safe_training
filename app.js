@@ -98,7 +98,7 @@ App({
   },
   
   globalData: {
-    // userInfo: null,
+    exercisePostPaperFlag:true,//答题交卷开关，避免接口还没有返回多次点击交卷生效
     url:'http://192.168.100.138:8080/',
     imgurl:'http://192.168.100.138:8080/jeecg-boot/sys/common/view/',
     // url:'https://kaijin.zhoumc.cn/',

@@ -8,8 +8,10 @@
       </view>
     </view>
     <view class='videotitle fleximg'>
-      <view  class='videotitleson'>{{item.name}}</view>  
+      <view  class="videotitleson {{item.state===1?'titlestudied':''}}">{{item.name}}</view>  
     </view> 
+    <view wx:if='{{item.state===1}}' class="studied">已学习</view>
+    <view wx:if='{{item.state===0}}' class="unstudy">未学习</view>
   </view>
 
 </view>

@@ -14,7 +14,8 @@ Page({
     titles: [],//题目
     checkanswerFlag:true,//答题开关
     isFocus: true,    //聚焦
-    Value: "",        //输入的内容
+    Value: "",        //显示的输入框的内容
+    trueIptValue: '',//真实的输入框input的值设为空
     ispassword: true, //是否密文显示 true为密文， false为明文。
     disabled: true,
     tipblockshow:false,//提示是否显示
@@ -76,7 +77,8 @@ Page({
     if(this.data.nexttxt==='确定'){
       if(that.data.sureflag){
         that.setData({
-          sureflag:false
+          sureflag:false,
+          nexttxt: ''//点击确定后马上变为不显示，避免是确定的时候重复点击，直接跳到下一题
         })
         //如果这道题的填空题的时候
         if (this.data.titles[this.data.idx].belong === 1) {
@@ -100,6 +102,7 @@ Page({
                     idx: that.data.idx + 1,//跳到下一题
                     Value: '',//设置下一题填空题内容为空
                     nexttxt: '',//下一题刚开始确定按钮不显示
+                    trueIptValue:'',//真实的输入框input的值设为空
                     isFillinRight: 3//填空题答案初始没提交，1是正确，2是错误
                   })
                 } else {
@@ -178,6 +181,7 @@ Page({
           that.setData({
             idx: that.data.idx + 1,//跳到下一题
             Value: '',//设置下一题填空题内容为空
+            trueIptValue: '',//真实的输入框input的值设为空
             nexttxt: '',//下一题刚开始确定按钮不显示
             isFillinRight: 3//填空题答案初始没提交，1是正确，2是错误
           })
@@ -205,18 +209,23 @@ Page({
     
   },
   toscore(){
-    var that=this,idx=this.data.idx,url='';
-    console.log(idx)
-
-    if (idx) {
-      url = '../score/score?questionTypeId=' + that.data.questionTypeId
-    } else {
+    let exercisePostPaperFlag = app.globalData.exercisePostPaperFlag;
+    console.log(exercisePostPaperFlag)
+    if (exercisePostPaperFlag){
+      app.globalData.exercisePostPaperFlag=false;
+      var that = this, idx = this.data.idx, url = '';
       console.log(idx)
-      url = '../score/score?questionTypeId=' + that.data.questionTypeId + '&num=' + that.data.totalnum
+      if (idx) {
+        url = '../score/score?questionTypeId=' + that.data.questionTypeId
+      } else {
+        console.log(idx)
+        url = '../score/score?questionTypeId=' + that.data.questionTypeId + '&num=' + that.data.totalnum
+      }
+      wx.navigateTo({
+        url: url,
+      }) 
     }
-    wx.navigateTo({
-      url: url,
-    })  
+     
   },
   //真实的输入框的输入改变事件
   Focus(e) {
@@ -224,7 +233,6 @@ Page({
     let length = e.currentTarget.dataset.length;
     var inputValue = e.detail.value;
     console.log(inputValue)
-    console.log('pppppppppppp')
     var ilen = inputValue.length;
     if (ilen == 6) {
       that.setData({
@@ -235,7 +243,6 @@ Page({
         disabled: true,
       })
     }
-    console.log(inputValue)
     if (inputValue.length>0){
       that.setData({
         Value: inputValue,
@@ -258,6 +265,7 @@ Page({
   },
   //作为显示的输入框的点击事件
   Tap() {
+    console.log('假的被点击')
     this.setData({
       isFocus: true,
     })

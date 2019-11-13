@@ -1,4 +1,10 @@
 /* pages/study/study.wxss */
 .pdfimg{width: 80rpx;}
-.studyitem{margin: 20rpx;padding: 0 0 0 30rpx;border-bottom: 1px solid #eee;}
-.studytxt{font-size: 32rpx;margin-left: 15rpx;}
+.out{position: relative;overflow: hidden;padding: 20rpx 20rpx 0;}
+.studyitem{padding: 0 0 0 30rpx;border-bottom: 1px solid #eee;}
+.studytxt{font-size: 32rpx;margin-left: 15rpx;padding-right: 40rpx;}
+.studied{background: rgba(3,200,121,0.3);color: #ffffff;position: absolute;top: 20rpx;right:-50rpx;transform: rotate(45deg);font-size: 24rpx;
+  padding: 0 50rpx;}
+.unstudy{background: rgba(245, 106, 113, 0.8);color: #ffffff;position: absolute;top: 20rpx;right:-50rpx;transform: rotate(45deg);font-size: 24rpx;
+  padding: 0 50rpx;}
+.titlestudied{color: #aaa}

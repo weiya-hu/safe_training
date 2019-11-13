@@ -36,38 +36,42 @@ Page({
 
       })
     }else{
-      var data = { questionTypeId: id, openid: wx.getStorageSync('openId') }
-      app.questUrl('jeecg-boot/wechat/question/postPaper', 'post', data).then(function (res) {
-        console.log(res)
-        if (res.data.success == true) {
-          wx.showModal({
-            content: res.data.message
-          })
-          var scores = [], resscores = res.data.result.tureAndFalseArr.split(',');
-          for (var i = 0, lth = res.data.result.questionSize; i < lth; i++) {
-            if (resscores[i]) {
-              scores.push(resscores[i])
-            } else {
-              scores.push(2)
+      if (app.globalData.exercisePostPaperFlag===false){
+        var data = { questionTypeId: id, openid: wx.getStorageSync('openId') }
+        app.questUrl('jeecg-boot/wechat/question/postPaper', 'post', data).then(function (res) {
+          console.log(res)
+          app.globalData.exercisePostPaperFlag = true;
+          if (res.data.success == true) {
+            wx.showModal({
+              content: res.data.message
+            })
+            var scores = [], resscores = res.data.result.tureAndFalseArr.split(',');
+            for (var i = 0, lth = res.data.result.questionSize; i < lth; i++) {
+              if (resscores[i]) {
+                scores.push(resscores[i])
+              } else {
+                scores.push(2)
+              }
             }
+            console.log(scores)
+            var getpointshow = false, nopointshow = false;
+            if (res.data.result.getJF > 0) {
+              getpointshow = true;
+            } else {
+              nopointshow = true;
+            }
+            that.setData({
+              score: res.data.result.userScore,
+              scorejf: res.data.result.getJF,
+              scores: scores,
+              totlescore: res.data.result.totalScore,
+              getpointshow: getpointshow,
+              nopointshow: nopointshow
+            })
           }
-          console.log(scores)
-          var getpointshow = false, nopointshow=false;
-          if (res.data.result.getJF>0){
-            getpointshow = true;
-          }else{
-            nopointshow = true;
-          }
-          that.setData({
-            score: res.data.result.userScore,
-            scorejf: res.data.result.getJF,
-            scores: scores,
-            totlescore: res.data.result.totalScore,
-            getpointshow: getpointshow,
-            nopointshow: nopointshow
-          })
-        }
-      })
+        })
+      }
+      
     }
     
   },
