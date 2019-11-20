@@ -47,10 +47,17 @@
       </view>
       <view class="nextimg fleximg"><image mode="widthFix" src="../../images/next.png"></image> </view>
     </view>
-    <view class="flex jfitem" bindtap="togetscore" wx:if="{{isExamine==='no'}}">
+    <view class="flex jfitem border_bot" bindtap="togetscore" wx:if="{{isExamine==='no'}}">
       <view class="flexl">
         <view class="jfimg fleximg"><image mode="widthFix" class="imgflex" src="../../images/getjf.png"></image> </view>
         <view class='jftxt'>获取积分</view>
+      </view>
+      <view class="nextimg fleximg"><image mode="widthFix" src="../../images/next.png"></image> </view>
+    </view>
+    <view class="flex jfitem" bindtap="touptitle" wx:if="{{isExamine==='no'}}">
+      <view class="flexl">
+        <view class="jfimg uptitleimg fleximg"><image mode="widthFix" class="imgflex" src="../../images/uptitle.png"></image> </view>
+        <view class='jftxt'>上传题目</view>
       </view>
       <view class="nextimg fleximg"><image mode="widthFix" src="../../images/next.png"></image> </view>
     </view>

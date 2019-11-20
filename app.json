@@ -14,7 +14,8 @@
     "pages/mine/scoreDetail/scoreDetail",
     "pages/mine/exchangeDetail/exchangeDetail",
     "pages/mine/getscore/getscore",
-    "pages/mine/exchange/exchange"
+    "pages/mine/exchange/exchange",
+    "pages/mine/uptitle/uptitle"
   ],
   "window": {
     "backgroundTextStyle": "light",

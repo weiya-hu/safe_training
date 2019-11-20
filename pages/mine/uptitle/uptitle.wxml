@@ -1,0 +1,85 @@
+<!--pages/photo/putphoto/putphoto.wxml-->
+<view class='co'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='flexl title'>
+      <label class='titlelab flexr' for='type'><view class='xinxin'>*</view>题目工种：</label>
+      <picker mode="selector" range="{{typelist.nameType}}" range-key="{{'name'}}" bindchange="bindworkChange" class='typepicker' name='worktype' value="{{worktypevalue}}">
+        <view class='typevalue'>{{worktxt}}</view>
+        <view class="xiaimg"><image mode='widthFix' src='../../../images/xia.png'></image></view>
+      </picker>
+    </view>
+    <view class='flexl title'>
+      <label class='titlelab flexr' for='type'><view class='xinxin'>*</view>题目类型：</label>
+      <picker mode="selector" range="{{typelist.questionType}}" range-key="{{'name'}}" bindchange="bindtitleChange" class='typepicker' name='titletype'  value="{{titletypevalue}}">
+        <view class='typevalue'>{{titletxt}}</view>
+        <view class="xiaimg"><image mode='widthFix' src='../../../images/xia.png'></image></view>
+      </picker>
+    </view>
+    <view class='flexl title'>
+      <label class='titlelab flexr' for='content'><view class='xinxin'>*</view>题目：</label>
+      <textarea name='title' id='content' bindinput='contentinp' class='contentinp' type='text' placeholder='请输入题目' value="{{contentvalue}}" maxlength='400' cursor-spacing='40'>
+        <text class="currentWordNumber">{{currenttitleNumber|0}}/400</text>
+      </textarea>
+      <view class="titlexample"  bindtap="tipblockshow">题目示例</view>
+    </view>
+    <!-- 填空题答案 -->
+    <view class='flexl title' wx:if='{{type==1}}'>
+      <label class='titlelab flexr' for='fillanswer'><view class='xinxin'>*</view>答案：</label>
+      <textarea name='fillanswer' id='fillanswer' bindinput='answerinp' class='contentinp answerinp' type='text' placeholder='请输入答案' value="{{answervalue}}" maxlength='50' cursor-spacing='40'>
+        <text class="currentWordNumber">{{currentanswerNumber|0}}/50</text>
+      </textarea>
+    </view>
+    <!-- 选择题选项 -->
+    <view class='flexlt title' wx:if='{{type==0}}'>
+      <label class='titlelab flextr' for='fillanswer'><view class='xinxin'>*</view>选项：</label>
+      <view class="flexselect selectright">
+        <view class="flexl selectwidth">
+          <view class="a">A、</view>
+          <input name='answerA' id='fillanswer' value="{{answerA}}" class='selectinp' type='text' placeholder='' placeholder-class="selectplace"  maxlength='50' cursor-spacing='40'>
+          </input>
+          <view class="fleximg addanswerimg" bindtap="addselect"><image mode="widthFix" src="../../../images/addanswer.png"></image> </view>
+        </view>
+        <view class="flexl selectwidth" wx:if='{{selectnum==1 || selectnum==2 || selectnum==3}}'>
+          <view class="a">B、</view>
+          <input name='answerB' id='fillanswer' value="{{answerB}}" class='selectinp' type='text' placeholder='' placeholder-class="selectplace"  maxlength='50' cursor-spacing='40'>
+          </input>
+          <view class="fleximg addanswerimg" bindtap="seletedelete"><image mode="widthFix" src="../../../images/delete.png"></image> </view>
+        </view>
+        <view class="flexl selectwidth" wx:if='{{selectnum==2 || selectnum==3}}'>
+          <view class="a">C、</view>
+          <input name='answerC' id='fillanswer' value="{{answerC}}" class='selectinp' type='text' placeholder='' placeholder-class="selectplace"  maxlength='50' cursor-spacing='40'>
+          </input>
+          <view class="fleximg addanswerimg" bindtap="seletedelete"><image mode="widthFix" src="../../../images/delete.png"></image> </view>
+        </view>
+        <view class="flexl selectwidth" wx:if='{{selectnum==3}}'>
+          <view class="a">D、</view>
+          <input name='answerD' id='fillanswer' value="{{answerD}}" class='selectinp' type='text' placeholder='' placeholder-class="selectplace"  maxlength='50' cursor-spacing='40'>
+          </input>
+          <view class="fleximg addanswerimg" bindtap="seletedelete"><image mode="widthFix" src="../../../images/delete.png"></image> </view>
+        </view>
+      </view>
+    </view>
+    <!-- 选择题答案 -->
+    <view class='flexl title' wx:if='{{type==0}}'>
+      <label class='titlelab flexr' for='type'><view class='xinxin'>*</view>答案：</label>
+      <picker mode="selector" range="{{selectAnswerRange}}" bindchange="selectanswerChange" class='typepicker' name='selectanswer' value="{{selectanswervalue}}">
+        <view class='typevalue'>{{selectanswer}}</view>
+        <view class="xiaimg"><image mode='widthFix' src='../../../images/xia.png'></image></view>
+      </picker>
+    </view>
+    <view class='btn'>
+      <button loading='{{loading}}' hover-class='none' form-type='reset' >取消</button>
+      <button loading='{{loading}}' hover-class='none' form-type='submit'>上传</button>
+    </view>
+    <!-- 查看题目示例模块 -->
+    <view class="tipblock" style='height:{{height}}px' wx:if='{{tipblockshow}}' bindtap="tipblockshow">
+      <view class="tipcontent" catchtap="cha">
+        <view class="tiptop">题目示例
+          <view class='chaimg fleximg' bindtap="tipblockshow"><image mode='widthFix' src="../../../images/cha2.png"></image></view>
+        </view>
+        <view class="tiptxt">钢筋在堆放时，必须设置（ ），并按类别批次分别堆放整齐，避免锈蚀和污染。</view>
+        <view class="tiptxt tip">小提示：如果是选择题答案处可以用括号“（ ）”也可以用其他文字代替，只要文字通顺就可以，但如果是填空题答案处必须是括号“（ ）”，否则上传后不能通过审核哟。</view>
+      </view>
+    </view>
+  </form>
+</view>

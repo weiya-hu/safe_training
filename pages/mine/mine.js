@@ -269,7 +269,11 @@ Page({
       url: 'getscore/getscore',
     })
   },
-  
+  touptitle(){
+    wx.navigateTo({
+      url: 'uptitle/uptitle',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -25,6 +25,7 @@
 .nextimg{width: 30rpx;}
 .jfitem{height: 70rpx;}
 .border_bot{border-bottom: 1rpx solid #eee;}
+.uptitleimg{position: relative;top: 4rpx;left: 2rpx;}
 
 
 
