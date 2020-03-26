@@ -180,7 +180,8 @@ Page({
           worktype: this.data.typelist.nameType[val.worktype].id,
           title: val.title,
           selectanswers: selectanswers,
-          selectanswer: val.selectanswer
+          selectanswer: val.selectanswer,
+          openid: wx.getStorageSync('openId')
         }
         console.log(data)
         app.questUrl('jeecg-boot/wechat/question/addQuestionByWorker','post',data).then((res)=>{

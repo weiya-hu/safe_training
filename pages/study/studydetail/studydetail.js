@@ -19,11 +19,11 @@ Page({
     this.setData({
       pdfitem: wx.getStorageSync('pdfitem')
     })
-    console.log(address)
-    this.start()
   },
-  start(){
-    var data={
+
+  //页面加载完后开始计时
+  loaded(){
+    var data = {
       openid: wx.getStorageSync('openId'),
       materialId: this.data.pdfitem.id
     }
@@ -39,8 +39,10 @@ Page({
         })
       }, 40000)
     })
-    
-    
+  },
+  looked(e){
+    console.log('hhh')
+    console.log(e.detail.data)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -81,7 +83,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log('909090')
   },
 
   /**

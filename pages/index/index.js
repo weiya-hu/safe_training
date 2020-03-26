@@ -121,11 +121,14 @@ Page({
   bindstudyChange(e) {
     console.log(e)
     let val = e.detail.value;
-    if(val==0){
+    let id = e.currentTarget.dataset.study[val].id
+    if (id === "2asd52sdfgfdg25xc2qwzfew52d"){
+      console.log('sp')
       wx.navigateTo({
         url: '../video/video?id=' + this.data.studyres[val].id,
       })
-    }else if(val==1){
+    } else if (id === "4dqw956xz4d89qweeqw416r" || "hhgty8415h8yjkkiup5dfgh85ae"){
+      console.log('txt')
       wx.navigateTo({
         url: '../study/study?id=' + this.data.studyres[val].id,
       })
@@ -134,6 +137,11 @@ Page({
   tomine(){
     wx.switchTab({
       url: '../mine/mine',
+    })
+  },
+  tophoto(){
+    wx.switchTab({
+      url: '../photo/photo',
     })
   },
   /**

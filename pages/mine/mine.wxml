@@ -62,6 +62,13 @@
       <view class="nextimg fleximg"><image mode="widthFix" src="../../images/next.png"></image> </view>
     </view>
   </view>
+  <view class="flex jfitem border_bot score" bindtap="tomask">
+      <view class="flexl">
+        <view class="jfimg fleximg"><image mode="widthFix" class="imgflex" src="../../images/mask.png"></image> </view>
+        <view class='jftxt'>口罩预警</view>
+      </view>
+      <view class="nextimg fleximg"><image mode="widthFix" src="../../images/next.png"></image> </view>
+    </view>
 </view>
 <view class='login fleximg' wx:if='{{loginshow}}'>
   <view wx:if="{{isHide}}" class='loginsus'>

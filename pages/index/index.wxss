@@ -5,8 +5,9 @@
 .userimgpre{padding: 30rpx 0;}
 .usertxt{padding: 20rpx 50rpx;}
 .usertxt view{padding: 4rpx 15rpx 6rpx;border-radius: 28rpx;background: #EC635D;color: #f1f3f5;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
-.dat{width: 30%;background: #fff;padding: 30rpx;border-radius: 10px;box-shadow: 0 0 20rpx 5rpx rgba(0,0,0,0.2);position: relative;}
-.content{display: flex;align-items: center;justify-content: space-around;margin-top: 80rpx;}
+.dat{width: 30%;background: #fff;padding: 30rpx;border-radius: 10px;box-shadow: 0 0 20rpx 5rpx rgba(0,0,0,0.2);position: relative;
+  margin: 0 20rpx;}
+.content{display: flex;align-items: center;justify-content: center;margin-top: 30rpx;}
 .datimg{width: 80%;margin: 0 auto}
 .dattxt{display: block;color: #512C56;margin: 16rpx auto 0;text-align: center;font-weight: bold;font-size: 36rpx;letter-spacing: 1px}
 .study{background: #fff;}
@@ -53,6 +54,8 @@
 .numlist{color: #512C56;padding: 15rpx;border-bottom:1px solid #f1f3f5; }
 .numtxt{font-size: 28rpx;}
 .numtxt view{font-size: 30rpx; font-weight: bold;color: rgba(239,106,106,0.8);}
+.photopre{margin-top: 40rpx}
+.photopre>view{margin: 0 20rpx;}
 @keyframes animtdh
 {
 from {transform: scale(0.9)}

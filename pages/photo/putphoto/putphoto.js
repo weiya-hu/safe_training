@@ -303,7 +303,7 @@ Page({
       app.questUrl('jeecg-boot/wechat/safeOrder/addOrder', 'post',data).then(function (res) {
         console.log(res)
         wx.hideToast();
-        if (res.data.code == 200) {
+        if (res.data.code === 200) {
           wx.showToast({
             title: '发送成功',
             icon: 'none'
@@ -324,10 +324,17 @@ Page({
               delta: 1,
             })
           }, 2000)
+        } else if (res.data.code === 201){
+          wx.showModal({
+            title: '错误提示',
+            content: res.data.message,
+            showCancel: false,
+            success: function (res) { }
+          })
         } else {
           wx.showModal({
             title: '错误提示',
-            content: '发送失败',
+            content: '发送失败，不属于项目组工作人员的不能发送随手拍',
             showCancel: false,
             success: function (res) { }
           })

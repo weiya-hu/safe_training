@@ -60,12 +60,14 @@ Page({
         var list = res.data.result.records;
         list.forEach((value) => {
           if (value.image) {
+            console.log(value.image)
             var images = value.image.split(',');
             for (let i = 0; i < images.length; i++) {
               images[i] = app.globalData.imgurl + images[i] + ''
             }
-            console.log(images)
             value.image = images
+          }else{
+            value.image = []
           }
         })
         console.log(list)

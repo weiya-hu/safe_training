@@ -1,2 +1,2 @@
 <!--pages/study/studydetail/studydetail.wxml-->
-<web-view src='{{pdfitem.address}}'></web-view>
+<web-view bindload='loaded' src='{{pdfitem.address}}' bindmessage='looked'></web-view>

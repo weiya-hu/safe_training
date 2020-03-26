@@ -6,10 +6,10 @@
         <image src="../../images/swipe9.jpg" class="slide-image" width="355" height="150" mode='widthFix'/>
       </swiper-item>
       <swiper-item>
-        <image src="../../images/swipe7.png" class="slide-image" width="355" height="150" mode='widthFix'/>
+        <image src="https://kaijin.zhoumc.cn/jeecg-boot/sys/common/view/files/wechat/swipe2.png" class="slide-image" width="355" height="150" mode='widthFix'/>
       </swiper-item>
       <swiper-item>
-        <image src="../../images/swipe3.gif" class="slide-image" width="355" height="150" mode='widthFix'/>
+        <image src="https://kaijin.zhoumc.cn/jeecg-boot/sys/common/view/files/wechat/swipe3.gif" class="slide-image" width="355" height="150" mode='widthFix'/>
       </swiper-item>
     </swiper>
   </view>
@@ -33,11 +33,23 @@
       <view class='dattxt'>答题</view>
       <view class='empower' wx:if='{{empowershow}}' catchtap="power" data-type="title"></view>
     </picker>
-    <picker class='dat study' bindchange="bindstudyChange" value="{{index}}" range="{{study}}">
+    <picker class='dat study' bindchange="bindstudyChange" data-study="{{studyres}}" value="{{index}}" range="{{study}}">
       <view class='datimg fleximg'><image mode='widthFix' bindtap="bindViewTap" class="userinfo-avatar" src="../../images/study1.png"></image></view> 
       <view class='dattxt'>学习</view>
       <view class='empower' wx:if='{{empowershow}}' catchtap="power" data-type="study"></view>
     </picker> 
+  </view>
+  <view class="photopre fleximg">
+    <view class='dat study' bindtap="tophoto">
+      <view class='datimg fleximg'><image mode='widthFix' bindtap="bindViewTap" class="userinfo-avatar" src="../../images/photo1.png"></image></view> 
+      <view class='dattxt'>随手拍</view>
+      <view class='empower' wx:if='{{empowershow}}' catchtap="power" data-type="study"></view>
+    </view> 
+    <view class='dat study' bindtap="tomine">
+      <view class='datimg fleximg'><image mode='widthFix' bindtap="bindViewTap" class="userinfo-avatar" src="../../images/jfen.png"></image></view> 
+      <view class='dattxt'>提现</view>
+      <view class='empower' wx:if='{{empowershow}}' catchtap="power" data-type="study"></view>
+    </view> 
   </view>
   <view class='ruletxt flexl' bindtap='ruleshow'>
     <view class='wenhimg fleximg'>
@@ -75,8 +87,8 @@
       </view>
     </view>
   </view>
-  <view class='dh flexl' bindtap='tomine'>
+  <!-- <view class='dh flexl' bindtap='tomine'>
     <view class='fleximg dhimg'><image mode='widthFix' src='../../images/dh1.png'></image></view>
     <view class='dhtxt'>去兑换积分</view>
-  </view>
+  </view> -->
 </view>

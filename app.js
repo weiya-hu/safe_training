@@ -15,8 +15,8 @@ App({
     //返回一个Promise对象
     return new Promise(function (resolve, reject) {
       wx.request({
-        // url: 'https://kaijin.zhoumc.cn/'+url,
-        url: 'http://192.168.100.138:8080/'+url,
+        url: 'https://kaijin.zhoumc.cn/'+url,
+        // url: 'http://192.168.100.134:8080/'+url,
         method: method,
         data: data,
         //在header中统一封装报文头，这样不用每个接口都写一样的报文头定义的代码
@@ -59,8 +59,8 @@ App({
     //返回一个Promise对象
     return new Promise(function (resolve, reject) {
       wx.request({
-        // url: 'https://kaijin.zhoumc.cn/'+url,
-        url: 'http://192.168.100.138:8080/' + url,
+        url: 'https://kaijin.zhoumc.cn/'+url,
+        // url: 'http://192.168.100.134:8080/' + url,
         method: method,
         data: data,
         //在header中统一封装报文头，这样不用每个接口都写一样的报文头定义的代码
@@ -99,9 +99,9 @@ App({
   
   globalData: {
     exercisePostPaperFlag:true,//答题交卷开关，避免接口还没有返回多次点击交卷生效
-    url:'http://192.168.100.138:8080/',
-    imgurl:'http://192.168.100.138:8080/jeecg-boot/sys/common/view/',
-    // url:'https://kaijin.zhoumc.cn/',
-    // imgurl:'https://kaijin.zhoumc.cn/jeecg-boot/sys/common/view/'
+    // url:'http://192.168.100.134:8080/',
+    // imgurl:'http://192.168.100.134:8080/jeecg-boot/sys/common/view/',
+    url:'https://kaijin.zhoumc.cn/',
+    imgurl:'https://kaijin.zhoumc.cn/jeecg-boot/sys/common/view/'
   }
 })

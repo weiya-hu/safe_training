@@ -1,27 +1,26 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/mine/mine",
     "pages/exercise/exercise",
     "pages/study/study",
     "pages/score/score",
-    "pages/video/video",
     "pages/study/studydetail/studydetail",
-    "pages/video/videodetail/videodetail",
     "pages/photo/photo",
     "pages/photo/putphoto/putphoto",
     "pages/mine/scoreDetail/scoreDetail",
     "pages/mine/exchangeDetail/exchangeDetail",
     "pages/mine/getscore/getscore",
     "pages/mine/exchange/exchange",
-    "pages/mine/uptitle/uptitle"
+    "pages/mine/uptitle/uptitle",
+    "pages/mine/mask/mask"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#EC635D",
     "navigationBarTitleText": "安全培训",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "onReachBottomDistance": 100
   },
   "tabBar": {
     "backgroundColor": "#fff",

@@ -259,6 +259,11 @@ Page({
       url: 'scoreDetail/scoreDetail',
     })
   },
+  tomask() {
+    wx.navigateTo({
+      url: 'mask/mask',
+    })
+  },
   toexchangeDetail() {
     wx.navigateTo({
       url: 'exchangeDetail/exchangeDetail',

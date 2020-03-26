@@ -79,7 +79,7 @@ Page({
     let that=this
     wx.showModal({
       title: '提示',
-      content: '是否确认兑换',
+      content: '是否确认提现',
       success(res) {
         if (res.confirm) {
           let value = that.data.value + '';

@@ -1,0 +1,41 @@
+<!--pages/mine/mask/mask.wxml-->
+<view class="mask" style="height:{{height}}px">
+  <view class="title">口罩识别系统</view>
+  <view class="intro">
+    <view class="introtitle">系统简介：</view>
+    <view>1、智能监测人员是否佩戴口罩</view>
+    <view>2、发现异常，实时提示</view>
+  </view>
+  <view class="intro">
+    <view class="introtitle">应用场景：</view>
+    <view>医院，政府机关，工厂企业，工地，商超，学校，港口，车站，机场等</view>
+  </view>
+  <view>
+    <view class="selecttxt">选择以下任一图片体验口罩识别功能：</view>
+    <view class="imgfl">
+      <view class="fleximg" bindtap="selectimg" data-num="8"><image mode="widthFix" src="https://kaijin.zhoumc.cn/jeecg-boot/sys/common/view/files/wechat/mask8.jpg"></image> </view>
+      <view class="fleximg" bindtap="selectimg" data-num="3"><image mode="widthFix" src="https://kaijin.zhoumc.cn/jeecg-boot/sys/common/view/files/wechat/mask3.jpg"></image> </view>
+      <view class="fleximg" bindtap="selectimg" data-num="4"><image mode="widthFix" src="https://kaijin.zhoumc.cn/jeecg-boot/sys/common/view/files/wechat/mask4.jpg"></image> </view>
+      <view class="fleximg" bindtap="selectimg" data-num="6"><image mode="widthFix" src="https://kaijin.zhoumc.cn/jeecg-boot/sys/common/view/files/wechat/mask6.jpg"></image> </view>
+    </view>
+  </view>
+  <view class="maskmodel fleximg" style="height:{{height}}px" wx:if='{{maskmodelshow}}'>
+    <view class="maskmodelcont">
+      <view class="flexl result" wx:if='{{isgreen}}'>
+        <view class="fleximg isimg"><image src="../../../images/greengou.png" mode="widthFix"></image> </view>
+        <view class="restxtg">识别结果：未发现未戴口罩的人员</view>
+      </view>
+      <view class="flexl result" wx:if='{{isred}}'>
+        <view class="fleximg isimg imgyj"><image src="../../../images/redca.png" mode="widthFix"></image> </view>
+        <view class="restxtr">预警：发现有未戴口罩的人员</view>
+      </view>
+      <view class="fleximg maskimgs" bindtap="previewimg">
+        <image src="{{imgurl}}" mode="widthFix"></image>
+      </view>
+      <view class="flexa">
+        <view bindtap="startmask">开始口罩识别</view>
+        <view bindtap="exitmaskshow">退出</view>
+      </view>
+    </view>
+  </view> 
+</view>

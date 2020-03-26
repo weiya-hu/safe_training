@@ -1,0 +1,23 @@
+/* pages/mine/mask/mask.wxss */
+.imgfl{display: flex;justify-content: center;flex-wrap: wrap;align-content: center;}
+.imgfl>view{width: 45%;margin: 2%;border-radius: 10rpx;overflow: hidden;height: 140rpx;}
+.mask{background: #1A359C;color: #ffffff;padding: 20rpx;overflow: scroll;box-sizing: border-box;}
+.title{font-size: 60rpx;text-align: center;}
+.intro{background: white;overflow: hidden;border-radius: 10rpx;padding:30rpx;color: #333;
+  margin: 40rpx auto;box-sizing: border-box}
+.introtitle{font-weight: bold;margin-bottom: 10rpx;}
+.selecttxt{padding-left: 10rpx;margin: 20rpx;box-sizing: border-box}
+.maskmodel{width: 100%;background: rgba(0, 0, 0, 0.9);position: fixed;top: 0;left: 0;
+  }
+.maskmodelcont{width: 100%;box-sizing: border-box}
+.maskimgs{margin: 40rpx auto;}
+.isimg{width: 40rpx;margin-right: 10rpx;}
+.result{padding-left: 20rpx}
+.restxtg{color: #5DC560}
+.restxtr{color: #E44245}
+.imgyj{animation: yj 0.4s infinite;}
+@keyframes yj
+{
+  from {opacity: 1}
+  to {opacity: 0}
+}
