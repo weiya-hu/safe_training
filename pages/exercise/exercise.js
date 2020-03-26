@@ -62,7 +62,7 @@ Page({
     console.log(e)
     var idx = this.data.idx + 1, length = this.data.titles.length, that = this;
     var num = e.currentTarget.dataset.answer
-    if (this.data.nexttxt!=='下一题'){
+    if (this.data.nexttxt !== '下一题' && this.data.nexttxt !== '交卷'){
       this.setData({
         answernum: num,
         nexttxt: '确定'
@@ -90,7 +90,7 @@ Page({
           };
           app.questUrl_noloading('jeecg-boot/wechat/question/getUserAnswer', 'post', data).then(function (res) {
             console.log(res)
-            that.setData({ sureflag:true})
+            // that.setData({ sureflag:true})
             //如果答案正确
             if (res.data.message === 'true') {
               that.setData({
@@ -103,7 +103,8 @@ Page({
                     Value: '',//设置下一题填空题内容为空
                     nexttxt: '',//下一题刚开始确定按钮不显示
                     trueIptValue:'',//真实的输入框input的值设为空
-                    isFillinRight: 3//填空题答案初始没提交，1是正确，2是错误
+                    isFillinRight: 3,//填空题答案初始没提交，1是正确，2是错误
+                    sureflag: true
                   })
                 } else {
                   that.toscore()
@@ -114,7 +115,8 @@ Page({
               if (idx < length) {
                 that.setData({
                   isFillinRight: 2,//填空题答案错误
-                  nexttxt: '下一题'//下一题刚开始确定按钮不显示
+                  nexttxt: '下一题',//下一题刚开始确定按钮不显示
+                  sureflag: true
                 })
               } else if (idx = length) {
                 that.setData({
@@ -134,10 +136,10 @@ Page({
           };
           app.questUrl_noloading('jeecg-boot/wechat/question/getUserAnswer', 'post', data).then(function (res) {
             console.log(res)
-            that.setData({ sureflag: true })
+            // that.setData({ sureflag: true })
             if (res.data.message === 'true') {
               that.setData({
-                selectkey: that.data.titles[that.data.idx].result,//正确答案为用户选择答案
+                selectkey: that.data.titles[that.data.idx].result,//正确答案
                 isFillinRight: 1//选择题答案正确
               })
               setTimeout(() => {
@@ -147,7 +149,8 @@ Page({
                     answernum: 5,//设置为5，选择项没有样式，初始样式
                     selectkey: 5,//答案初始值，没有样式
                     nexttxt: '',//下一题刚开始确定按钮不显示
-                    isFillinRight: 3//填空题答案初始没提交，1是正确，2是错误
+                    isFillinRight: 3,//填空题答案初始没提交，1是正确，2是错误
+                    sureflag: true
                   })
                 } else {
                   that.toscore()
@@ -158,13 +161,13 @@ Page({
                 that.setData({
                   nexttxt: '下一题',//下一题按钮显示下一题
                   isFillinRight: 2,//选择题答案错误
-                  selectkey: that.data.titles[that.data.idx].result//正确答案为用户选择答案
-
+                  selectkey: that.data.titles[that.data.idx].result,//正确答案
+                  sureflag: true
                 })
               } else if (idx = length) {
                 that.setData({
                   isFillinRight: 2,//选择题答案错误
-                  selectkey: that.data.titles[that.data.idx].result,//正确答案为用户选择答案
+                  selectkey: that.data.titles[that.data.idx].result,//正确答案
                   nexttxt: '交卷'//最后一道题显示交卷
                 })
               }
